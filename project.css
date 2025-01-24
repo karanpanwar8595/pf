@@ -1,0 +1,227 @@
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  margin: 0;
+  background-color: white;
+}
+ 
+.body_section {
+  padding: 3% 5% 1%;
+}
+
+@font-face {
+  font-family: "Lovely Home";
+  src: local("Lovely Home"), url("Image/LovelyHome-9aBZ.ttf") format("truetype");
+}
+
+footer {
+  padding-top: 2%;
+  color: #868e96;
+  text-align: center;
+}
+
+
+/* General Body Styling */
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(to bottom, #e0e4ff); /* Light gradient background */
+}
+
+.navbar {
+  padding: 20px 10%;
+  background-color: #f8f9fa;
+}
+
+.brand-name {
+  font-family: "Lovely Home";
+  font-size: 50px;
+  font-weight: bold;
+  color: #351458;
+}
+
+footer {
+  padding: 20px 0;
+  color: #868e96;
+  text-align: center;
+}
+
+/* Center 3D Project Box */
+.project-box-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  height: auto;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+
+ .content {
+  background: #fff;
+  border-radius: 50px;
+  /* box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2); */
+  width: 95%; /* Increased width to cover even more space */
+  max-width: 1400px; /* Increased max-width for even wider screens */
+  height: 35%; /* Set height based on content */
+  min-height: auto; /* Optional: Ensure a minimum height */
+  padding: 20px 40px; /* Adjust padding as needed */
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+} 
+
+
+.content:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Project Title */
+.project-title {
+  font-family: "Times New Roman', serif", serif;
+  font-size: 48px;
+  font-weight: bold;
+  color: #351458;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Project Description */
+.project-description {
+  font-family: 'Times New Roman', serif;
+  font-size: 18px;
+  color: #393434;
+  margin-bottom: 15px;
+  line-height: 1.5;
+  text-transform: capitalize;
+}
+
+/* Tools and Technology */
+.tools-tech {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #555;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.github-link:hover {
+  background: linear-gradient(to right, #2575fc, #6a11cb);
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  margin: 0;
+  background-color: #ffffff; 
+}
+
+.body_section {
+  padding: 3% 5% 1%;
+}
+
+/* General Body Styling */
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  margin: 0;
+  background-color: #ffffff; /* Light purple background removed, now white */
+}
+
+.navbar {
+  padding: 20px 10%;
+  background-color: #f8f9fa;
+}
+
+.brand-name {
+  font-family: "Lovely Home";
+  font-size: 50px;
+  font-weight: bold;
+  color: #351458;
+}
+
+footer {
+  padding: 20px 0;
+  color: #868e96;
+  text-align: center;
+}
+
+
+/* Base Light Theme Styles */
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  margin: 0;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.navbar {
+  padding: 20px 10%;
+  background-color: #f8f9fa;
+}
+
+.brand-name {
+  font-family: "Lovely Home";
+  font-size: 50px;
+  font-weight: bold;
+  color: #351458;
+}
+
+footer {
+  padding: 20px 0;
+  color: #868e96;
+  text-align: center;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+/* body.dark-mode .navbar {
+  background-color: #333;
+} */
+
+body.dark-mode .brand-name {
+  color: #e0e0e0;
+}
+
+body.dark-mode footer {
+  color: #b0b0b0;
+}
+
+body.dark-mode .project-title {
+  color: #e0e0e0;
+}
+
+body.dark-mode .project-description {
+  color: #c0c0c0;
+}
+
+body.dark-mode .tools-tech {
+  color: #999;
+}
+
+body.dark-mode .content {
+  background-color: #010c38;
+  color: #e0e0e0;
+}
+
+body.dark-mode .content:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(38, 37, 37, 0.6);
+}
+
+body.dark-mode .github-link:hover {
+  background: linear-gradient(to right, #2575fc, #6a11cb);
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
