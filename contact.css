@@ -18,8 +18,6 @@ a {
 
 .brand-name,
 .navbar-light .navbar-brand {
-  /* font-family: "Brush Script MT"; */
-  /* margin-bottom: 3px; */
   font-family: "Lovely Home";
   font-size: 50px;
   font-weight: bold;
@@ -51,25 +49,24 @@ a {
 
 .first-section {
   text-align: center;
+  position: relative; /* Added to establish positioning context for button */
 }
 
 .Profilepic {
-  width: 250px;                 /* Set the width of the image */
-  height: 300px;                /* Set the height of the image */
-  border-radius: 10%;  
-      /* Rounded corners for a soft look */
-  border: 2px solid transparent; /* Transparent border to make the image appear clean */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);  /* Soft shadow around the image */
-  object-fit: cover;           /* Ensures the image covers the entire container */
-  transition: all 0.3s ease;    /* Smooth transition for hover effects */
+  width: 250px;
+  height: 300px;
+  border-radius: 10%;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+  transition: all 0.3s ease;
 }
 
 .Profilepic:hover {
-  border: 5px solid #1f86ec;    /* Change border color on hover */
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
-  transform: scale(1.05);        /* Slightly zoom in on hover for a dynamic effect */
+  border: 5px solid #1f86ec;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
 }
-
 
 .context {
   text-align: center;
@@ -127,30 +124,30 @@ p {
 }
 
 .btn2 {
-  background-color: rgb(214, 217, 225); /* Original blue background */
-  color: #1f86ec;              /* Text color is white by default */
-  padding: 10px 20px;        /* Adequate padding for a larger button */
-  font-size: 16px;           /* Comfortable font size */
-  border: none;              /* No border for a clean look */
-  border-radius: 8px;        /* Rounded corners */
-  cursor: pointer;          /* Pointer cursor on hover */
-  text-transform: uppercase; /* Uppercase text for a more bold look */
-  font-weight: 600;          /* Make text bold */
-  transition: all 0.3s ease; /* Smooth transition for hover effects */
-  position: relative;        /* Use relative positioning */
-  z-index: 100%;  
-  left: 570%;           /* Ensure it appears on top of other content */
+  background-color: rgb(214, 217, 225);
+  color: #1f86ec;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative; /* Keep position relative */
+  z-index: 100; /* Corrected z-index to integer value */
+  display: block;
+  margin: 10px auto 20px auto;
 }
 
 .btn2:hover {
-  background-color: white;  /* Change background to white on hover */
-  color: black;           /* Text color changes to blue on hover */
-  box-shadow: 0 4px 8px rgba(103, 101, 101, 0.1); /* Soft shadow on hover */
+  background-color: white;
+  color: black;
+  box-shadow: 0 4px 8px rgba(103, 101, 101, 0.1);
 }
-.fontt{
+.fontt {
   font-family: 'Times New Roman', Times, serif;
 }
-
 
 .second-section {
   text-align: center;
@@ -169,6 +166,7 @@ p {
   border-radius: 10px;
 }
 
+/* Existing CSS for .connection (in contact.css) */
 .connection {
   margin-top: 30px;
   width: 100%;
@@ -176,6 +174,15 @@ p {
   margin-bottom: 10px;
 }
 
+/* Media query for smaller screens (e.g., mobile devices) */
+@media only screen and (max-width: 768px) {
+  .connection {
+    height: auto; /* Changed from 100% to auto to scale proportionally */
+    max-height: 300px; /* Added max-height to limit maximum image height on small screens */
+    margin-top: 20px; /* Reduced top margin for smaller screens */
+    margin-bottom: 5px; /* Reduced bottom margin for smaller screens */
+  }
+}
 .icon {
   margin-top: 15px;
   border: 1px solid #0494e1;
@@ -246,17 +253,6 @@ footer {
   color: #868e96;
   text-align: center;
 }
-/* .icon-wrapper {
-  width: 50px;
-  height: 50px;
-  background-color: #333;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-} */
 
 .icon-wrapper:hover {
   box-shadow: 0 0 15px rgba(108, 99, 255, 0.8);
