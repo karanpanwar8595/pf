@@ -1,31 +1,60 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-
     <style>
+      /* Existing btn2 style - Modified */
       .btn2 {
-  background-color: rgb(214, 217, 225);
-  color: #1f86ec;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  text-transform: uppercase;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  position: relative; /* Keep position relative */
-  z-index: 100; /* Corrected z-index to integer value */
-  display: block;
-  margin: 10px auto 20px auto;
-}
+        background-color: rgb(214, 217, 225);
+        color: #1f86ec;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 100;
+        /* Remove display: block; and margin: auto; */
+        /* These will now be handled by the parent anchor tag or default button behavior */
+         display: inline-block; /* Buttons are typically inline-block */
+         margin: 0; /* Reset margin */
+         vertical-align: middle; /* Helps align with icons if needed */
+      }
 
-.btn2:hover {
-  background-color: white;
-  color: black;
-  box-shadow: 0 4px 8px rgba(103, 101, 101, 0.1);
-}
-      </style>
+      .btn2:hover {
+        background-color: white;
+        color: black;
+        box-shadow: 0 4px 8px rgba(103, 101, 101, 0.1);
+      }
+
+      /* Style for the anchor tag wrapping the button */
+      .resume-btn-link {
+          display: block; /* Force the anchor tag onto a new line */
+          margin-top: 20px; /* Add space above the button */
+          margin-bottom: 20px; /* Add space below the button */
+          /* text-align: left; -- Not strictly necessary if button is inline-block in a block container */
+      }
+
+       /* Add some spacing between the social media icons */
+       .social_media_icon .btn {
+           margin-right: 10px; /* Space to the right of each icon */
+           margin-bottom: 10px; /* Space below icons, useful if they wrap on small screens */
+           display: inline-block; /* Ensure they sit side-by-side and wrap */
+       }
+
+       /* You might have existing styles for .social_media_icon in style.css or dark-mode.css.
+          Ensure no conflicting display: flex or similar is applied there.
+          If there is, you might need to override it here or in the specific CSS file.
+       */
+       .social_media_icon {
+           margin-top: 20px; /* Add space above the social section if needed */
+           /* Remove any display: flex; align-items; flex-wrap; gap; properties if they were added before */
+       }
+
+
+    </style>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Karan Portfolio</title>
@@ -88,7 +117,7 @@
   <body class="container-fluid body_section">
     <header>
       <nav class="navbar navbar-expand-lg navbar-light">
-       
+
         <button
           class="navbar-toggler"
           type="button"
@@ -121,7 +150,7 @@
               <a  href="contact.html">Contact Me</a>
             </li>
             <li>
-              
+
               <iframe
                 id="toggle-iframe"
                 onload="onIframeLoad()"
@@ -148,6 +177,7 @@
             and scalable social and technical systems to create impact
           </p>
           <div class="social_media_icon">
+            <!-- Social Media Icons (will appear inline and wrap) -->
             <a
               class="btn"
               href="https://www.instagram.com/karan.panwar143/"
@@ -175,14 +205,17 @@
               target="_blank"
             >
               <i class="fab fa-google"></i>
+           </a>
+           <!-- Resume button (now wrapped in a block-level anchor tag) -->
           <a
             href="resume.html"
-            target="_blank">
-
+            target="_blank"
+            class="resume-btn-link"> <!-- ADDED CLASS HERE -->
             <button type="button" class="btn2">
               See My Resume
-            </button></a>
-        
+            </button>
+          </a>
+
 
           </div>
         </div>
@@ -211,7 +244,7 @@
             </li>
           </ul>
           <div class="Data-Analytic">
-          
+
             <p class="Features-paragraph">
               ➤ Developing fully responsive website frontends using HTML, CSS, Bootstrap, and JavaScript.
                Experience of working with different python Libraries like
@@ -241,8 +274,8 @@
             </li>
             <li><i class="fab fa-node fa-5x" style="color: #679e63"></i></li>
             <li>  </li>
-           
-            
+
+
           </ul>
           <div class="data-analytics">
             <p class="features-paragraph">
@@ -251,9 +284,9 @@
             <p class="features-paragraph">
               ➤ Currently focused on frontend development, but I’m eager to expand my skills in the near future, exploring frameworks and tools like React, Node.js, Django, Flask, and more.
             </p>
-           
+
         </div>
-        
+
         </div>
         <div class="col-lg-6 col-md-6 Feature-second-image">
           <img class="Feature-svg-image" src="Image/htmlcsss.webp" alt="" />
@@ -281,7 +314,7 @@
                 ➤ I am familiar with key algorithms, A basic searching and shorting algorithm that locates an item in a sorted list by repeatedly dividing the search interval in half.
             </p>
         </div>
-        
+
         </div>
       </div>
     </section>
