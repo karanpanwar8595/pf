@@ -1,38 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head> 
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>karan Portfolio</title>
     <link rel="icon" href="Image/engineer.ico" />
+
+    <!-- External CSS (keep these external if possible for better performance) -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
       integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="project.css" />
-    <link rel="stylesheet" href="dark-mode.css" />
-    <link rel="stylesheet" href="navbar.css">
-
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=Arizonia&family=Montserrat:wght@400;800&display=swap"
-      rel="stylesheet"
-    />
-    <!-- <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap"
-      rel="stylesheet"
-    /> -->
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
     />
-    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
     />
+     <link
+      href="https://fonts.googleapis.com/css2?family=Arizonia&family=Montserrat:wght@400;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Internal CSS (Paste your CSS file content here) -->
+    <style>
+        /* === CSS from project.css goes here === */
+        /* For example: */
+        /*
+        .project-box-center {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        */
+         /* PASTE CONTENT OF project.css BELOW THIS LINE */
+
+
+         /* PASTE CONTENT OF project.css ABOVE THIS LINE */
+    </style>
+     <style>
+        /* === CSS from dark-mode.css goes here === */
+        /* PASTE CONTENT OF dark-mode.css BELOW THIS LINE */
+
+
+        /* PASTE CONTENT OF dark-mode.css ABOVE THIS LINE */
+    </style>
+     <style>
+        /* === CSS from navbar.css goes here === */
+        /* PASTE CONTENT OF navbar.css BELOW THIS LINE */
+
+
+        /* PASTE CONTENT OF navbar.css ABOVE THIS LINE */
+    </style>
+
+
+    <!-- External JavaScript (keep these external if possible) -->
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -48,24 +75,26 @@
       integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
       crossorigin="anonymous"
     ></script>
-  </head>
-  <script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=G-WZXPVQDR2Q"
-  ></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
 
-    gtag("config", "G-WZXPVQDR2Q");
-  </script>
-  <body class="container-fluid body_section">
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-WZXPVQDR2Q"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-WZXPVQDR2Q");
+    </script>
+
+</head>
+<body class="container-fluid body_section">
     <header>
       <nav class="navbar navbar-expand-lg navbar-light">
-       
+
         <button
           class="navbar-toggler"
           type="button"
@@ -96,6 +125,8 @@
             </li>
 
             <li>
+              <!-- If toggle.html is also meant to be embedded, its content would go here.
+                   Keeping it as an iframe assumes it's a separate file you still use. -->
               <iframe
                 id="toggle-iframe"
                 onload="onIframeLoad()"
@@ -106,6 +137,7 @@
         </div>
       </nav>
     </header>
+
     <section id="Projects" class="Section1">
     <br/>
       <div class="project-box-center">
@@ -113,58 +145,110 @@
           <h1 class="project-title">Project Tracking Website </h1>
           <p class="project-description">The project focused on developing an intuitive platform that streamlined task tracking and enhanced team collaboration. It enabled seamless communication, efficient task management, and better project visibility, fostering improved teamwork and productivity.</p>
           <p class="tools-tech">Tools & Technologies: React,Django,MySQl</p>
-          <a href="https://github.com/karanpanwar8595/Project-management-system" class="project-link">View Project</a>
-         
-
-            </div>
-          </div>
-         <br>
-         <div class="project-box-center">
-          <div class="content">
-            <h1 class="project-title">Stock Market Predection</h1>
-            <p class="project-description">The project aimed to predict stock market trends using historical data to identify patterns and forecast future movements. By analyzing various factors, the system provided insights into potential market shifts, helping inform investment decisions.</p>
-            <p class="tools-tech">Tools & Technologies: Machine learning models such as CNN, LSTM, Random Forest,K-Nearest Neighbors (KNN) and more. </p>
-            <a href="https://github.com/karanpanwar8595/machine-learning-in-finance" class="project-link">View Project</a>
-           
-  
-              </div>
-            </div>
-            <br>
-            <div class="project-box-center">
-              <div class="content">
-                <h1 class="project-title">Image Classification</h1>
-                <p class="project-description">The project focused on developing a system to classify images into predefined categories using various deep learning models and techniques. By training the model on labeled image data, it accurately recognized and categorized different visual patterns.</p>
-                <p class="tools-tech">Tools & Technologies:  PCA, KNN, Stochastic Gradient Descent, Random Forest, MLP, CNN, ResNet50.</p>
-                <a href="https://github.com/karanpanwar8595/imaging" class="project-link">View Project</a>
-               
-      
-                  </div>
-                </div>
-                <br>
-                <div class="project-box-center">
-                  <div class="content">
-                    <h1 class="project-title"> Image Description Generator</h1>
-                    <p class="project-description">An AI-based system that analyses uploaded images and provides accurate and detailed descriptions automatically.</p>
-                    <p class="tools-tech">Tools & Technologies: HTML, CSS, JavaScript, Python, Flask, Deep learning model</p>
-                    <a href="https://github.com/karanpanwar8595/description" class="project-link">View Project</a>
-                   
-          
-                      </div>
-                    </div>
-                    <br>
-                    <div class="project-box-center">
-                      <div class="content">
-                        <h1 class="project-title">Weather Application</h1>
-                        <p class="project-description">The project involved creating a weather app that provides real-time weather updates, allowing users to view live weather conditions and forecasts for any location.</p>
-                        <p class="tools-tech">Tools & Technologies: HTML, CSS, JavaScript,Django, Flask, Bootstrap, MySQl, Python</p>
-                        <a href="https://github.com/karanpanwar8595/weather-app" class="project-link">View Project</a>
-                       
-              
-                          </div>
-                        </div>
+          <!-- Link updated to placeholder #, will be changed by script -->
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+      <br>
+      <div class="project-box-center">
+        <div class="content">
+          <h1 class="project-title">Stock Market Prediction</h1>
+          <p class="project-description">The project aimed to predict stock market trends using historical data to identify patterns and forecast future movements. By analyzing various factors, the system provided insights into potential market shifts, helping inform investment decisions.</p>
+          <p class="tools-tech">Tools & Technologies: Machine learning models such as CNN, LSTM, Random Forest,K-Nearest Neighbors (KNN) and more. </p>
+           <!-- Link updated to placeholder #, will be changed by script -->
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+      <br>
+      <div class="project-box-center">
+        <div class="content">
+          <h1 class="project-title">Image Classification</h1>
+          <p class="project-description">The project focused on developing a system to classify images into predefined categories using various deep learning models and techniques. By training the model on labeled image data, it accurately recognized and categorized different visual patterns.</p>
+          <p class="tools-tech">Tools & Technologies:  PCA, KNN, Stochastic Gradient Descent, Random Forest, MLP, CNN, ResNet50.</p>
+           <!-- Link updated to placeholder #, will be changed by script -->
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+      <br>
+      <div class="project-box-center">
+        <div class="content">
+          <h1 class="project-title">Image Description Generator</h1>
+          <p class="project-description">An AI-based system that analyses uploaded images and provides accurate and detailed descriptions automatically.</p>
+          <p class="tools-tech">Tools & Technologies: HTML, CSS, JavaScript, Python, Flask, Deep learning model</p>
+           <!-- Link updated to placeholder #, will be changed by script -->
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
+      <br>
+      <div class="project-box-center">
+        <div class="content">
+          <h1 class="project-title">Weather Application</h1>
+          <p class="project-description">The project involved creating a weather app that provides real-time weather updates, allowing users to view live weather conditions and forecasts for any location.</p>
+          <p class="tools-tech">Tools & Technologies: HTML, CSS, JavaScript,Django, Flask, Bootstrap, MySQl, Python</p>
+           <!-- Link updated to placeholder #, will be changed by script -->
+          <a href="#" class="project-link">View Project</a>
+        </div>
+      </div>
     </section>
 
     <footer class="footer">❤️ Thank You ❤️</footer>
-    <script src="dark-mode.js"></script>
-  </body>
+
+    <!-- Internal JavaScript (Paste your dark-mode.js content here) -->
+    <script>
+        /* === JavaScript from dark-mode.js goes here === */
+        // PASTE CONTENT OF dark-mode.js BELOW THIS LINE
+
+
+        // PASTE CONTENT OF dark-mode.js ABOVE THIS LINE
+
+        // Example placeholder for dark-mode.js function (replace with your actual code)
+        function onIframeLoad() {
+             console.log("Iframe loaded (replace this log with dark-mode.js code if needed)");
+             // Your dark-mode.js code might need to interact with the iframe
+             // Or maybe the iframe *is* your dark mode toggle?
+             // If dark-mode.js contains the logic for the toggle iframe, paste it here.
+             // If the dark-mode toggle is completely handled within the iframe,
+             // then this script tag is where any other standalone JS should go.
+             // The mailto script is standalone, so place it below.
+        }
+    </script>
+
+
+    <!-- Script to update project links to mailto -->
+    <script>
+        $(document).ready(function() {
+            // Your email address
+            var myEmail = 'karanpanwar8595@gmail.com';
+
+            // Loop through each project link
+            $('.project-link').each(function() {
+                var $link = $(this);
+
+                // Find the corresponding project title within the same content block
+                var projectTitle = $link.closest('.content').find('.project-title').text().trim();
+
+                // Construct the email subject
+                var emailSubject = 'Inquiry about ' + projectTitle;
+
+                // Construct the email body
+                var emailBody = 'Hello Karan,\n\nI want to know about this project: ' + projectTitle + '\n\nPlease tell me more about it.\n\nThank you!'; // Added a closing line
+
+                // Encode the subject and body for the mailto link
+                var encodedSubject = encodeURIComponent(emailSubject);
+                var encodedBody = encodeURIComponent(emailBody);
+
+                // Create the mailto link URL
+                var mailtoUrl = 'mailto:' + myEmail + '?subject=' + encodedSubject + '&body=' + encodedBody;
+
+                // Set the href attribute of the link to the mailto URL
+                $link.attr('href', mailtoUrl);
+
+                 // Optionally, add a target="_top" to ensure it doesn't try to open in the iframe
+                 // if the link was somehow inside the iframe's context (unlikely here, but good practice)
+                 // $link.attr('target', '_top');
+            });
+        });
+    </script>
+
+</body>
 </html>
