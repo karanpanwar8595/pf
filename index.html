@@ -1,321 +1,249 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <style>
-      /* Existing btn2 style - Modified */
-      .btn2 {
-        background-color: rgb(214, 217, 225);
-        color: #1f86ec;
-        padding: 10px 20px;
-        font-size: 16px;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        text-transform: uppercase;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        position: relative;
-        z-index: 100;
-        /* Remove display: block; and margin: auto; */
-        /* These will now be handled by the parent anchor tag or default button behavior */
-         display: inline-block; /* Buttons are typically inline-block */
-         margin: 0; /* Reset margin */
-         vertical-align: middle; /* Helps align with icons if needed */
-      }
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Karan Panwar - Data Scientist & AI Engineer</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 
-      .btn2:hover {
-        background-color: white;
-        color: black;
-        box-shadow: 0 4px 8px rgba(103, 101, 101, 0.1);
-      }
-
-      /* Style for the anchor tag wrapping the button */
-      .resume-btn-link {
-          display: block; /* Force the anchor tag onto a new line */
-          margin-top: 20px; /* Add space above the button */
-          margin-bottom: 20px; /* Add space below the button */
-          /* text-align: left; -- Not strictly necessary if button is inline-block in a block container */
-      }
-
-       /* Add some spacing between the social media icons */
-       .social_media_icon .btn {
-           margin-right: 10px; /* Space to the right of each icon */
-           margin-bottom: 10px; /* Space below icons, useful if they wrap on small screens */
-           display: inline-block; /* Ensure they sit side-by-side and wrap */
-       }
-
-       /* You might have existing styles for .social_media_icon in style.css or dark-mode.css.
-          Ensure no conflicting display: flex or similar is applied there.
-          If there is, you might need to override it here or in the specific CSS file.
-       */
-       .social_media_icon {
-           margin-top: 20px; /* Add space above the social section if needed */
-           /* Remove any display: flex; align-items; flex-wrap; gap; properties if they were added before */
-       }
-
-
-    </style>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Karan Portfolio</title>
-    <link rel="icon" href="Image/engineer.ico" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="dark-mode.css" />
-    <link rel="stylesheet" href="navbar.css">
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=Arizonia&family=Montserrat:wght@400;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
-    />
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=G-WZXPVQDR2Q"
-  ></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --primary: #14b8a6; --secondary: #4f46e5; --accent: #38bdf8; --success: #22c55e; --warning: #f59e0b; --danger: #ef4444; --dark: #0f172a; --light: #f1f5f9; --glass: rgba(255, 255, 255, 0.05); --shadow: rgba(0, 0, 0, 0.1); --text: #1e293b; --text-light: #475569; --background: linear-gradient(135deg, #e0f2fe 0%, #c7d2fe 100%); --particle-background: rgba(15, 23, 42, 0.3); --nav-background: rgba(15, 23, 42, 0.85); --hero-title-gradient: linear-gradient(135deg, #fff 0%, #e2e8f0 100%); --card-hover-transform: translateY(-12px) rotateX(5deg);
     }
-    gtag("js", new Date());
+    .dark-theme {
+      --primary: #2dd4bf; --secondary: #818cf8; --accent: #7dd3fc; --dark: #e2e8f0; --light: #1e293b; --glass: rgba(0, 0, 0, 0.2); --shadow: rgba(0, 0, 0, 0.4); --text: #cbd5e1; --text-light: #94a3b8; --background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%); --particle-background: rgba(255, 255, 255, 0.08); --nav-background: rgba(2, 6, 23, 0.85);
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--background); min-height: 100vh; overflow-x: hidden; color: var(--text); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); background-attachment: fixed; }
+    .card-link { text-decoration: none; color: inherit; display: block; position: relative; }
+    .card-link::after { content: '\f08e'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; top: 1.5rem; right: 1.5rem; color: var(--text); opacity: 0; transform: scale(0.8); transition: all 0.3s ease; }
+    .card-link:hover::after { opacity: 0.6; transform: scale(1); }
+    .particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; }
+    .particle { position: absolute; border-radius: 50%; background: var(--particle-background); pointer-events: none; }
+    .nav { position: fixed; top: 2rem; right: 2rem; z-index: 1000; display: flex; flex-direction: column; gap: 1rem; }
+    .nav-btn { width: 60px; height: 60px; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 50%; background: var(--nav-background); backdrop-filter: blur(20px); color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); position: relative; overflow: hidden; text-decoration: none; }
+    .nav-btn::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(45deg, var(--primary), var(--accent)); opacity: 0; transition: opacity 0.3s ease; }
+    .nav-btn:hover::before { opacity: 1; }
+    .nav-btn:hover { transform: translateY(-5px) scale(1.1); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); }
+    .nav-btn:hover i { transform: scale(1.1) rotate(5deg); }
+    .nav-btn i { position: relative; z-index: 1; font-size: 1.2rem; transition: transform 0.3s ease; }
+    .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; }
+    .hero-content { z-index: 2; animation: heroSlideUp 1.5s cubic-bezier(0.4, 0, 0.2, 1); max-width: 900px; padding: 0 2rem; }
+    @keyframes heroSlideUp { from { opacity: 0; transform: translateY(100px) scale(0.9); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    .hero h1 { font-size: clamp(3.5rem, 10vw, 7rem); font-weight: 900; background: var(--hero-title-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; letter-spacing: -3px; text-shadow: 0 0 50px rgba(255, 255, 255, 0.5); }
+    .hero .subtitle { font-size: clamp(1.4rem, 4vw, 2.5rem); color: rgba(255, 255, 255, 0.9); margin-bottom: 1rem; font-weight: 300; }
+    .hero .tagline { font-size: clamp(1rem, 2.5vw, 1.5rem); color: rgba(255, 255, 255, 0.7); margin-bottom: 3rem; font-weight: 400; font-style: italic; }
+    .hero .contact-info { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 3rem; flex-wrap: wrap; }
+    .contact-item { display: flex; align-items: center; gap: 0.8rem; color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); padding: 1rem 1.5rem; border-radius: 50px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); font-weight: 500; }
+    .contact-item:hover { color: white; transform: translateY(-3px) scale(1.05); background: rgba(255, 255, 255, 0.2); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); }
+    .cta-buttons { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+    .cta-btn { display: inline-flex; align-items: center; gap: 0.75rem; padding: 1.2rem 2.5rem; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 1.1rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 15px 35px hsla(var(--primary), 0.4); position: relative; overflow: hidden; }
+    .cta-btn.secondary { background: transparent; border: 2px solid rgba(255, 255, 255, 0.3); box-shadow: none; }
+    .cta-btn::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent); transition: left 0.6s; }
+    .cta-btn:hover::before { left: 100%; }
+    .cta-btn:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 20px 45px hsla(var(--primary), 0.5); }
+    .cta-btn:hover i { transform: translateX(5px); }
+    .cta-btn i { transition: transform 0.3s ease; }
+    .main-content { padding: 6rem 2rem; max-width: 1400px; margin: 0 auto; }
+    .section { margin-bottom: 8rem; opacity: 0; transform: translateY(50px); transition: all 1s cubic-bezier(0.4, 0, 0.2, 1); }
+    .section.visible { opacity: 1; transform: translateY(0); }
+    .section-title { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; text-align: center; margin-bottom: 4rem; position: relative; color: var(--dark); letter-spacing: -1px; }
+    .section-title::after { content: ''; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 80px; height: 5px; background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent)); border-radius: 3px; }
+    .card { background: var(--glass); backdrop-filter: blur(30px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 25px; padding: 2.5rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1); }
+    .card:hover { transform: translateY(-10px); box-shadow: 0 35px 70px -15px rgba(0,0,0,0.2); }
+    .card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--primary), var(--secondary)); }
+    .summary-card { text-align: center; padding: 3rem; }
+    .summary-card p { font-size: 1.2rem; line-height: 1.8; color: var(--text); }
+    .education-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; }
+    .education-card:hover { transform: var(--card-hover-transform); }
+    .education-header { display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 1.5rem; }
+    .education-icon { width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; flex-shrink: 0; }
+    .education-title { font-size: 1.5rem; font-weight: 700; color: var(--dark); margin-bottom: 0.25rem; }
+    .education-info { color: var(--text-light); font-weight: 500; margin-bottom: 0.5rem; }
+    .education-focus { font-style: italic; color: var(--text-light); }
+    .coursework-title { font-weight: 600; color: var(--dark); margin-bottom: 1rem; font-size: 1.1rem; }
+    .coursework-tags { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .coursework-tag { background-color: var(--light); color: var(--text-light); padding: 0.4rem 0.8rem; border-radius: 15px; font-size: 0.85rem; font-weight: 500; border: 1px solid rgba(0,0,0,0.05); }
+    .dark-theme .coursework-tag { border: 1px solid rgba(255,255,255,0.1); }
+    .experience-card:hover { transform: translateY(-8px); }
+    .experience-card::before { background: linear-gradient(90deg, var(--success), var(--primary)); }
+    .experience-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem; }
+    .experience-title-block { flex-grow: 1; }
+    .experience-title { color: var(--primary); font-size: 1.6rem; font-weight: 700; }
+    .experience-company { color: var(--dark); font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .experience-period { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; font-weight: 600; flex-shrink: 0; }
+    .experience-details ul { list-style-position: inside; padding-left: 0.5rem; color: var(--text-light); margin: 0; }
+    .experience-details li { margin-bottom: 0.75rem; line-height: 1.6; }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
+    .project-card { display: flex; flex-direction: column; }
+    .project-card::before { background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)); transform: translateX(-100%); transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+    .project-card:hover::before { transform: translateX(0); }
+    .project-card:hover { transform: translateY(-15px) rotateX(5deg); background: var(--glass); }
+    .project-icon { width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 18px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem; box-shadow: 0 10px 25px hsla(var(--primary), 0.3); flex-shrink: 0; margin-bottom: 1.5rem;}
+    .project-title { font-size: 1.5rem; font-weight: 700; color: var(--dark); margin-bottom: 1rem; }
+    .project-details ul { list-style-type: none; padding: 0; margin: 0 0 1.5rem 0; flex-grow: 1;}
+    .project-details li { color: var(--text-light); position: relative; padding-left: 1.5rem; margin-bottom: 0.5rem; line-height: 1.6; }
+    .project-details li::before { content: '\f058'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: var(--primary); position: absolute; left: 0; top: 4px; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; }
+    .project-tag { background: linear-gradient(135deg, var(--accent), var(--primary)); color: white; padding: 0.4rem 0.9rem; border-radius: 15px; font-size: 0.8rem; font-weight: 500; }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem; }
+    .skill-category h3 { font-size: 1.6rem; font-weight: 700; color: var(--dark); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+    .skill-icon { width: 45px; height: 45px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.1rem; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .skill-tag { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 0.6rem 1rem; border-radius: 25px; font-size: 0.95rem; font-weight: 500; transition: all 0.3s ease; }
+    .skill-tag:hover { transform: translateY(-3px); box-shadow: 0 8px 20px hsla(var(--primary), 0.4); }
+    .certificates-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+    .certificate-card { border-radius: 20px; padding: 2rem; text-align: center; }
+    .certificate-card::before { background: linear-gradient(90deg, #ffd700, #ffed4e); transform: translateX(-100%); transition: transform 0.5s ease; }
+    .certificate-card:hover::before { transform: translateX(0); }
+    .certificate-card:hover { transform: translateY(-8px) scale(1.02); }
+    .certificate-icon { width: 60px; height: 60px; background: linear-gradient(135deg, #ffd700, #ffed4e); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #0f172a; font-size: 1.5rem; margin: 0 auto 1rem; box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3); }
+    .certificate-name { font-weight: 600; color: var(--dark); font-size: 1.1rem; line-height: 1.4; }
+    .scroll-indicator { position: fixed; top: 0; left: 0; width: 100%; height: 5px; background: rgba(255, 255, 255, 0.1); z-index: 1001; }
+    .scroll-progress { height: 100%; background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)); width: 0%; transition: width 0.1s linear; }
+    .loading { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, var(--primary), var(--secondary)); display: flex; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.8s ease; }
+    .loading-content { text-align: center; color: white; }
+    .loading-spinner { width: 60px; height: 60px; border: 4px solid rgba(255, 255, 255, 0.3); border-top: 4px solid white; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 1rem; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    .loading.hidden { opacity: 0; pointer-events: none; }
+    @media (max-width: 1024px) { .projects-grid, .skills-grid { grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); } }
+    @media (max-width: 768px) { .nav { top: 1rem; right: 1rem; flex-direction: row; } .nav-btn { width: 50px; height: 50px; } .hero .contact-info { flex-direction: column; align-items: center; gap: 1rem; } .main-content { padding: 3rem 1rem; } .projects-grid, .skills-grid, .education-grid { grid-template-columns: 1fr; } .cta-buttons { flex-direction: column; align-items: center; } .experience-header { flex-direction: column; align-items: flex-start; } }
+    @media (max-width: 480px) { .section { margin-bottom: 4rem; } .card { padding: 1.5rem; } .hero-content { padding: 0 1rem; } }
+  </style>
+</head>
+<body>
+  <div class="loading" id="loading"><div class="loading-content"><div class="loading-spinner"></div><p>Loading Portfolio...</p></div></div>
+  <div class="scroll-indicator"><div class="scroll-progress" id="scrollProgress"></div></div>
+  <div class="particles" id="particles"></div>
+  <div class="nav">
+    <button class="nav-btn" onclick="toggleTheme()" title="Toggle Theme"><i class="fas fa-moon" id="themeIcon"></i></button>
+    <a href="Karan cv.pdf" download class="nav-btn" title="Download Resume"><i class="fas fa-download"></i></a>
+    <button class="nav-btn" onclick="scrollToTop()" title="Back to Top"><i class="fas fa-arrow-up"></i></button>
+  </div>
 
-    gtag("config", "G-WZXPVQDR2Q");
+  <header class="hero" id="home">
+    <div class="hero-content">
+      <h1>Karan Panwar</h1>
+      <p class="subtitle">Data Scientist • AI Engineer • Full-Stack Developer</p>
+      <p class="tagline">Transforming Complex Data into Intelligent Solutions</p>
+      <div class="contact-info">
+        <a href="mailto:karanpanwar8595@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> karanpanwar8595@gmail.com</a>
+        <a href="https://www.linkedin.com/in/karan-panwar-1b9b6a26b/" target="_blank" class="contact-item"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/karanpanwar8595" target="_blank" class="contact-item"><i class="fab fa-github"></i> GitHub</a>
+      </div>
+      <div class="cta-buttons">
+        <a href="#projects" class="cta-btn"><i class="fas fa-briefcase"></i> View Projects</a>
+        <a href="#skills" class="cta-btn secondary"><i class="fas fa-cogs"></i> Technical Skills</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section class="section" id="summary">
+        <h2 class="section-title">Professional Summary</h2>
+        <div class="summary-card card">
+            <p>Data Scientist and AI Engineer specializing in designing and deploying scalable, intelligent solutions. Leveraging a strong foundation in machine learning, computer vision, and full-stack development, I transform complex data into impactful, user-centric products. Pursuing an MSc in Computer Science to deepen my expertise in advanced AI systems and their real-world applications.</p>
+        </div>
+    </section>
+
+    <section class="section" id="experience">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="experience-card card">
+            <div class="experience-header">
+                <div class="experience-title-block">
+                    <h3 class="experience-company">Anglia Ruskin University</h3>
+                    <p class="experience-title">Research Assistant - Advanced ML</p>
+                </div>
+                <div class="experience-period">Jan 2025 - May 2025</div>
+            </div>
+            <div class="experience-details">
+                <ul>
+                    <li>Led research comparing Quantum Neural Networks to traditional CNNs, significantly improving processing efficiency for specific image recognition tasks.</li>
+                    <li>Developed and fine-tuned predictive financial models, achieving a measurable increase in back-tested accuracy for market trend analysis.</li>
+                    <li>Engineered novel semantic data processing algorithms to automate insight generation from unstructured text, substantially reducing manual analysis time.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="projects">
+        <h2 class="section-title">Project Showcase</h2>
+        <div class="projects-grid">
+            <div class="project-card card"><div class="project-icon"><i class="fas fa-heartbeat"></i></div><h3 class="project-title">Digital Health & Wellbeing Agent</h3><div class="project-details"><ul><li>Engineered a personalized recommendation engine using NLP to interpret user queries and provide tailored health advice.</li><li>Designed and deployed a scalable backend with Node.js and TypeScript, handling concurrent users with high uptime.</li></ul></div><div class="project-tags"><span class="project-tag">TypeScript</span><span class="project-tag">Node.js</span><span class="project-tag">NLP</span><span class="project-tag">REST APIs</span></div></div>
+            <div class="project-card card"><div class="project-icon"><i class="fas fa-music"></i></div><h3 class="project-title">Emotion-Based Music Recommender</h3><div class="project-details"><ul><li>Achieved high accuracy in facial emotion detection by building and training a custom Convolutional Neural Network (CNN).</li><li>Integrated the Spotify API for seamless, real-time playlist generation, enhancing user engagement and personalization.</li></ul></div><div class="project-tags"><span class="project-tag">CNN</span><span class="project-tag">Deep Learning</span><span class="project-tag">Computer Vision</span><span class="project-tag">Spotify API</span></div></div>
+            <div class="project-card card"><div class="project-icon"><i class="fas fa-sign-language"></i></div><h3 class="project-title">Sign Language Translator</h3><div class="project-details"><ul><li>Developed a real-time sign language translation model using deep learning, bridging communication gaps for the hearing-impaired.</li><li>Built an accessible full-stack application with Python and Django to convert text and speech into sign language.</li></ul></div><div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Django</span><span class="project-tag">Deep Learning</span><span class="project-tag">Accessibility</span></div></div>
+            <div class="project-card card"><div class="project-icon"><i class="fas fa-chart-line"></i></div><h3 class="project-title">Stock Market Prediction Engine</h3><div class="project-details"><ul><li>Designed an LSTM-based model to forecast stock market trends with high accuracy on historical time-series data.</li><li>Developed a custom web interface using HTML and CSS for real-time data visualization and risk assessment.</li></ul></div><div class="project-tags"><span class="project-tag">LSTM</span><span class="project-tag">Time Series</span><span class="project-tag">HTML/CSS</span><span class="project-tag">Finance</span></div></div>
+            <div class="project-card card"><div class="project-icon"><i class="fas fa-tasks"></i></div><h3 class="project-title">Project Management Platform</h3><div class="project-details"><ul><li>Architected a full-stack system with React and Django that increased team productivity through streamlined task tracking.</li><li>Implemented role-based authentication and real-time notifications using WebSockets, reducing task update delays.</li></ul></div><div class="project-tags"><span class="project-tag">React</span><span class="project-tag">Django</span><span class="project-tag">MySQL</span><span class="project-tag">WebSockets</span></div></div>
+            <div class="project-card card"><div class="project-icon"><i class="fas fa-university"></i></div><h3 class="project-title">Cambridge Culture Website</h3><div class="project-details"><ul><li>Contributed to full-stack development, creating a responsive front-end and a robust back-end using Python and Django.</li><li>Managed all site content and data structures efficiently through the custom-configured Django admin panel.</li></ul></div><div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Django</span><span class="project-tag">Full-Stack</span><span class="project-tag">Team Project</span></div></div>
+        </div>
+    </section>
+
+    <section class="section" id="skills">
+        <h2 class="section-title">Technical Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-category card"><h3><span class="skill-icon"><i class="fas fa-brain"></i></span>ML & AI</h3><div class="skill-tags"><span class="skill-tag">TensorFlow</span><span class="skill-tag">PyTorch</span><span class="skill-tag">Keras</span><span class="skill-tag">Scikit-learn</span><span class="skill-tag">OpenCV</span><span class="skill-tag">NLP (spaCy)</span><span class="skill-tag">LSTM & CNN</span></div></div>
+            <div class="skill-category card"><h3><span class="skill-icon"><i class="fas fa-chart-pie"></i></span>Data Science</h3><div class="skill-tags"><span class="skill-tag">Pandas</span><span class="skill-tag">NumPy</span><span class="skill-tag">Matplotlib</span><span class="skill-tag">Power BI</span><span class="skill-tag">ETL Processes</span><span class="skill-tag">Statistical Modeling</span></div></div>
+            <div class="skill-category card"><h3><span class="skill-icon"><i class="fas fa-globe"></i></span>Web Development</h3><div class="skill-tags"><span class="skill-tag">Node.js</span><span class="skill-tag">Python (Django, Flask)</span><span class="skill-tag">React.js</span><span class="skill-tag">Next.js</span><span class="skill-tag">TypeScript</span><span class="skill-tag">REST APIs</span><span class="skill-tag">WebSockets</span></div></div>
+            <div class="skill-category card"><h3><span class="skill-icon"><i class="fas fa-database"></i></span>Databases</h3><div class="skill-tags"><span class="skill-tag">MySQL</span><span class="skill-tag">PostgreSQL</span><span class="skill-tag">MongoDB</span></div></div>
+            <div class="skill-category card"><h3><span class="skill-icon"><i class="fas fa-cloud"></i></span>Tools & Platforms</h3><div class="skill-tags"><span class="skill-tag">Docker</span><span class="skill-tag">Git & GitHub</span><span class="skill-tag">Jupyter</span></div></div>
+        </div>
+    </section>
+
+    <section class="section" id="education">
+      <h2 class="section-title">Education</h2>
+      <div class="education-grid">
+        <a href="https://www.aru.ac.uk/" target="_blank" class="card-link"><div class="education-card card"><div class="education-header"><div class="education-icon"><i class="fas fa-graduation-cap"></i></div><div><h3 class="education-title">MSc in Computer Science</h3><p class="education-info">Anglia Ruskin University, Cambridge, UK</p><p class="education-focus">Expected Graduation: September 2025</p></div></div><h4 class="coursework-title">Key Coursework:</h4><div class="coursework-tags"><span class="coursework-tag">Machine Learning in Finance</span><span class="coursework-tag">Machine Learning for Imaging</span><span class="coursework-tag">Semantic Data Technologies</span><span class="coursework-tag">Advanced Web Solutions</span><span class="coursework-tag">Cyber Security & AI Case Studies</span><span class="coursework-tag">Postgraduate Major Project</span><span class="coursework-tag">Research Methods</span></div></div></a>
+        <a href="https://sxca.edu.in/" target="_blank" class="card-link"><div class="education-card card"><div class="education-header"><div class="education-icon"><i class="fas fa-university"></i></div><div><h3 class="education-title">BSc in Computer Applications</h3><p class="education-info">St. Xavier’s College, Ahmedabad, India</p><p class="education-focus">Graduated: May 2024 (First Class)</p></div></div><h4 class="coursework-title">Key Coursework:</h4><div class="coursework-tags"><span class="coursework-tag">Python for Big Data & ML</span><span class="coursework-tag">Database Management Systems</span><span class="coursework-tag">Data Structures</span><span class="coursework-tag">Object-Oriented Programming</span><span class="coursework-tag">Statistical Computing</span><span class="coursework-tag">Advanced C Programming</span><span class="coursework-tag">Core Java</span><span class="coursework-tag">Web Technologies (PHP, ASP.NET)</span></div></div></a>
+      </div>
+    </section>
+
+    <section class="section" id="certificates">
+      <h2 class="section-title">Certifications</h2>
+      <div class="certificates-grid">
+        <a href="certificates/IBM.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Python for Data Science<br/>(IBM)</p></div></a>
+        <a href="certificates/ACCENATURE.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Data Analytics & Viz<br/>(Accenture)</p></div></a>
+        <a href="certificates/JP MORGAN.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Software Engineering<br/>(JPMorgan Chase)</p></div></a>
+        <a href="certificates/BCG GENAI.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Generative AI<br/>(BCG)</p></div></a>
+        <a href="certificates/AWS.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Cloud Practitioner<br/>(AWS)</p></div></a>
+        <a href="certificates/TATA GENAI.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Generative AI<br/>(TATA)</p></div></a>
+        <a href="certificates/FORD.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">AI Fundamentals<br/>(Ford)</p></div></a>
+        <a href="certificates/BANK OF AMERICA.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Virtual Experience<br/>(Bank of America)</p></div></a>
+        <a href="certificates/QUNATIUM.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Data Analytics<br/>(Quantium)</p></div></a>
+        <a href="certificates/BRITISH AIRWAYS.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Cybersecurity<br/>(British Airways)</p></div></a>
+        <a href="certificates/LLYODS BANK TECH.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Tech & Innovation<br/>(Lloyds Bank)</p></div></a>
+        <a href="certificates/TATA.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Data Visualization<br/>(TATA)</p></div></a>
+      </div>
+    </section>
+  </main>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const loadingScreen = document.getElementById('loading');
+      window.addEventListener('load', () => { setTimeout(() => loadingScreen.classList.add('hidden'), 500); });
+      const themeIcon = document.getElementById('themeIcon');
+      const body = document.body;
+      const currentTheme = localStorage.getItem('theme');
+      if (currentTheme === 'dark') { body.classList.add('dark-theme'); themeIcon.classList.replace('fa-moon', 'fa-sun'); }
+      window.toggleTheme = function() {
+        body.classList.toggle('dark-theme');
+        let theme = body.classList.contains('dark-theme') ? 'dark' : 'light';
+        theme === 'dark' ? themeIcon.classList.replace('fa-moon', 'fa-sun') : themeIcon.classList.replace('fa-sun', 'fa-moon');
+        localStorage.setItem('theme', theme);
+      };
+      window.scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+      const particlesContainer = document.getElementById('particles');
+      if (particlesContainer) {
+        const numParticles = 50;
+        for (let i = 0; i < numParticles; i++) { let p = document.createElement('div'); p.classList.add('particle'); const s = Math.random() * 8 + 2; p.style.width = `${s}px`; p.style.height = `${s}px`; p.style.left = `${Math.random() * 100}%`; p.style.top = `${Math.random() * 100}%`; p.style.animation = `float ${Math.random() * 20 + 15}s ease-in-out infinite ${Math.random() * 10}s`; particlesContainer.appendChild(p); }
+        const ss = document.createElement("style"); ss.innerText = `@keyframes float { 0% { transform: translateY(0) translateX(0); opacity: 0.7; } 50% { transform: translateY(-100px) translateX(${Math.random() * 100 - 50}px); opacity: 0.3; } 100% { transform: translateY(0) translateX(0); opacity: 0.7; }}`; document.head.appendChild(ss);
+      }
+      const scrollProgress = document.getElementById('scrollProgress');
+      window.addEventListener('scroll', () => { if (scrollProgress) { const p = (document.documentElement.scrollTop / (document.documentElement.scrollHeight - document.documentElement.clientHeight)) * 100; scrollProgress.style.width = `${p}%`; } });
+      const observer = new IntersectionObserver(e => { e.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.1 });
+      document.querySelectorAll('.section').forEach(section => observer.observe(section));
+      document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('click', function (e) { e.preventDefault(); const t = document.querySelector(this.getAttribute('href')); if(t) t.scrollIntoView({ behavior: 'smooth' }); }); });
+    });
   </script>
-  <body class="container-fluid body_section">
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-light">
-
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a  href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a href="education.html"
-                >Education</a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="skill.html">Skills</a>
-            </li>
-            <li class="nav-item">
-              <a  href="project.html">Projects</a>
-            </li>
-           
-            <li>
-
-              <iframe
-                id="toggle-iframe"
-                onload="onIframeLoad()"
-                src="toggle.html"
-              ></iframe>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </header>
-
-    <section id="Home">
-      <div class="row column1">
-        <div class="col-lg-6 col-md-6 first-image">
-          <img class="boyimage" src="Image/20200630_162659.gif" alt="" />
-        </div>
-        <div class="col-lg-6 section-1">
-          <h1 class="Hello">
-            Hi All! I'm KARAN <span class="wave">👋</span>
-          </h1>
-          <p>
-         A passionate developer with hands-on experience in Data Analytics, Machine Learning, and Web Development.
-         I'm driven to build sustainable and scalable solutions—both social and technical—that create meaningful impact.
-          </p>
-          <div class="social_media_icon">
-            <!-- Social Media Icons (will appear inline and wrap) -->
-            <a
-              class="btn"
-              href="https://www.instagram.com/karan.panwar143/"
-              target="_blank"
-            >
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a
-              class="btn"
-              href="https://www.linkedin.com/in/karan-panwar-1b9b6a26b/"
-              target="_blank"
-            >
-              <i class="fab fa-linkedin" aria-hidden="true"></i>
-            </a>
-            <a
-              class="btn"
-              href="https://github.com/karanpanwar8595"
-              target="_blank"
-            >
-              <i class="fab fa-github"></i>
-            </a>
-            <a
-              class="btn"
-              href="mailto:karanpanwar8595@gmail.com"
-              target="_blank"
-            >
-              <i class="fab fa-google"></i>
-           </a>
-           <!-- Resume button (now wrapped in a block-level anchor tag) -->
-          <a
-            href="resume.html"
-            target="_blank"
-            class="resume-btn-link"> <!-- ADDED CLASS HERE -->
-            <button type="button" class="btn2">
-              See My Resume
-            </button>
-          </a>
-
-
-          </div>
-        </div>
-        <div class="Image-boy col-lg-6">
-          <img class="boy" src="Image/Boy-image.png" alt="" />
-        </div>
-      </div>
-    </section>
-<!-- perfect  -->
-    <section id="Whatido">
-      <h1>What I Do ?</h1>
-      <div class="row feature-1">
-        <div class="col-lg-6 col-md-6 Feature-first-image">
-          <img class="Feature-svg-image" src="Image/Data_Analysis.svg" alt="" />
-        </div>
-        <div class="col-lg-6 col-md-6">
-          <h1 class="Feature-Heading">Data Analytics & Machine Learning</h1>
-          <ul class="dev-icon">
-            <li><i class="fab fa-python fa-5x" style="color: #3776ab"></i></li>
-            <li><img class="numpy" src="Image/numpy-ar21.svg" alt="" /></li>
-            <li>
-              <img class="pandas" src="Image/kindpng_5747046.png" alt="" />
-            </li>
-            <li>
-              <img class="sklearn" src="Image/scikit-learn.png" alt="" />
-            </li>
-          </ul>
-          <div class="Data-Analytic">
-
-            <p class="Features-paragraph">
-              ➤ Proficient in working with Python libraries such as NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn, and TensorFlow.
-              </br>
-              ➤ Knowledgeable in data analysis techniques and machine learning algorithms for extracting insights
-                  and making predictions from structured and unstructured data.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="row feature-2">
-        <div class="col-lg-6 col-md-6 feature-web">
-          <h1 class="Feature-Heading">Web Development</h1>
-          <ul class="dev-icon">
-            <li><i class="fab fa-html5 fa-5x" style="color: #e34f26"></i></li>
-            <li>
-              <i class="fab fa-css3-alt fa-5x" style="color: #1572b6"></i>
-            </li>
-            <li>
-              <i class="fab fa-bootstrap fa-5x" style="color: #543b79"></i>
-            </li>
-            <li>
-              <i class="fab fa-js-square fa-5x" style="color: #f7df1e"></i>
-            </li>
-            <li><i class="fab fa-react fa-5x" style="color: #61dafb"></i></li>
-            <li>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Django_logo.svg" alt="Django logo" width="50" height="60" >
-            </li>
-            <li><i class="fab fa-node fa-5x" style="color: #679e63"></i></li>
-            <li>  </li>
-
-
-          </ul>
-          <div class="data-analytics">
-            <p class="features-paragraph">
-              ➤ Developing fully responsive website frontends using HTML, CSS, Bootstrap, and JavaScript.
-            </p>
-            <p class="features-paragraph">
-              ➤ Currently focused on frontend development, but I’m eager to expand my skills in the near future, exploring frameworks and tools like React, Node.js, Django, Flask, and more.
-            </p>
-
-        </div>
-
-        </div>
-        <div class="col-lg-6 col-md-6 Feature-second-image">
-          <img class="Feature-svg-image" src="Image/htmlcsss.webp" alt="" />
-        </div>
-      </div>
-      <div class="row feature-3">
-        <div class="col-lg-6 col-md-6 Feature-third-image">
-          <img class="Feature-svg-image-3" src="Image/Coding.svg" alt="" />
-        </div>
-        <div class="col-lg-6 col-md-6 feature-coding">
-          <h1 class="Feature-Heading">Data Structures and Algorithms</h1>
-          <ul class="dev-icon">
-            <li></li>
-            <li><i class="fas fa-laptop-code fa-4x"></i></li>
-
-            <li>
-              <i class="fas fa-file-code fa-4x" style="color: #a8afcb"></i>
-            </li>
-          </ul>
-          <div class="data-analytics">
-            <p class="features-paragraph">
-                ➤ I have a solid foundation in essential Data Structures, including Hash Tables, Trees, and Graphs, along with expertise in various algorithms designed to solve problems efficiently.
-            </p>
-            <p class="features-paragraph">
-                ➤ I am familiar with key algorithms, A basic searching and shorting algorithm that locates an item in a sorted list by repeatedly dividing the search interval in half.
-            </p>
-        </div>
-
-        </div>
-      </div>
-    </section>
-    <footer class="footer">❤️ Thank You ❤️</footer>
-    <script src="dark-mode.js"></script>
-  </body>
+</body>
 </html>
