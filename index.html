@@ -28,7 +28,21 @@
     .nav-btn:hover { transform: translateY(-5px) scale(1.1); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); }
     .nav-btn:hover i { transform: scale(1.1) rotate(5deg); }
     .nav-btn i { position: relative; z-index: 1; font-size: 1.2rem; transition: transform 0.3s ease; }
-    .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; }
+    
+    /* --- HERO SECTION FIX --- */
+    .hero { 
+        height: 100vh; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        text-align: center; 
+        position: relative; 
+        overflow: hidden; 
+        /* This background is now ALWAYS dark, ensuring high contrast for text */
+        background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
+        color: white; /* Fallback text color for hero section */
+    }
+
     .hero-content { z-index: 2; animation: heroSlideUp 1.5s cubic-bezier(0.4, 0, 0.2, 1); max-width: 900px; padding: 0 2rem; }
     @keyframes heroSlideUp { from { opacity: 0; transform: translateY(100px) scale(0.9); } to { opacity: 1; transform: translateY(0) scale(1); } }
     .hero h1 { font-size: clamp(3.5rem, 10vw, 7rem); font-weight: 900; background: var(--hero-title-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; letter-spacing: -3px; text-shadow: 0 0 50px rgba(255, 255, 255, 0.5); }
@@ -201,18 +215,18 @@
     <section class="section" id="certificates">
       <h2 class="section-title">Certifications</h2>
       <div class="certificates-grid">
-        <a href="IBM.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Python for Data Science<br/>(IBM)</p></div></a>
-        <a href="ACCENATURE.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Data Analytics & Viz<br/>(Accenture)</p></div></a>
-        <a href="JP MORGAN.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Software Engineering<br/>(JPMorgan Chase)</p></div></a>
-        <a href="BCG GENAI.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Generative AI<br/>(BCG)</p></div></a>
-        <a href="AWS.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Cloud Practitioner<br/>(AWS)</p></div></a>
-        <a href="TATA GENAI.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Generative AI<br/>(TATA)</p></div></a>
-        <a href="FORD.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">AI Fundamentals<br/>(Ford)</p></div></a>
-        <a href="BANK OF AMERICA.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Virtual Experience<br/>(Bank of America)</p></div></a>
-        <a href="QUNATIUM.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Data Analytics<br/>(Quantium)</p></div></a>
-        <a href="BRITISH AIRWAYS.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Cybersecurity<br/>(British Airways)</p></div></a>
-        <a href="LLYODS BANK TECH.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Tech & Innovation<br/>(Lloyds Bank)</p></div></a>
-        <a href="TATA.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Data Visualization<br/>(TATA)</p></div></a>
+        <a href="certificates/IBM.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Python for Data Science<br/>(IBM)</p></div></a>
+        <a href="certificates/ACCENATURE.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Data Analytics & Viz<br/>(Accenture)</p></div></a>
+        <a href="certificates/JP MORGAN.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Software Engineering<br/>(JPMorgan Chase)</p></div></a>
+        <a href="certificates/BCG GENAI.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Generative AI<br/>(BCG)</p></div></a>
+        <a href="certificates/AWS.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Cloud Practitioner<br/>(AWS)</p></div></a>
+        <a href="certificates/TATA GENAI.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Generative AI<br/>(TATA)</p></div></a>
+        <a href="certificates/FORD.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">AI Fundamentals<br/>(Ford)</p></div></a>
+        <a href="certificates/BANK OF AMERICA.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Virtual Experience<br/>(Bank of America)</p></div></a>
+        <a href="certificates/QUNATIUM.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Data Analytics<br/>(Quantium)</p></div></a>
+        <a href="certificates/BRITISH AIRWAYS.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Cybersecurity<br/>(British Airways)</p></div></a>
+        <a href="certificates/LLYODS BANK TECH.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Tech & Innovation<br/>(Lloyds Bank)</p></div></a>
+        <a href="certificates/TATA.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Data Visualization<br/>(TATA)</p></div></a>
       </div>
     </section>
   </main>
@@ -247,7 +261,3 @@
   </script>
 </body>
 </html>
-
-
-
-
