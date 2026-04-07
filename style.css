@@ -1,0 +1,83 @@
+@theme {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: auto; /* Managed by Lenis now */
+  }
+  
+  body {
+    background-color: #050505;
+    color: #fff;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Custom Scrollbar, minimal and elegant */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #050505;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* GSAP Pre-init States (Prevent FOUC) */
+.hero-title, .hero-subtitle, .hero-text, .hero-buttons, .hero-top {
+  visibility: hidden;
+}
+.gsap-reveal, .gsap-card {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* SplitType Line hiding for smooth elegant slide-up */
+.line {
+  overflow: hidden;
+  padding-bottom: 2px; /* Prevent text clipping on tails */
+}
+.word {
+  transform: translateY(100%); /* Hide word initially outside the mask */
+}
+
+.clip-mask {
+  overflow: hidden;
+}
+
+/* Marquee Utilities */
+.marquee-row {
+  width: 100vw;
+  position: relative;
+}
+
+/* Elegant Accordion transition for experience */
+.accordion-content {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.experience-card.active .accordion-content {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+.experience-card.active {
+  background-color: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.experience-card.active .accordion-icon {
+  transform: rotate(0deg);
+  color: #06b6d4;
+}
