@@ -1,321 +1,458 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Karan Panwar - Data Scientist & AI Engineer</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    /* --- THEME-AWARE STYLING FIX --- */
-    :root {
-      --primary: #14b8a6; --secondary: #4f46e5; --accent: #38bdf8; --success: #22c55e; --warning: #f59e0b; --danger: #ef4444; --dark: #0f172a; --light: #f1f5f9; --glass: rgba(255, 255, 255, 0.05); --shadow: rgba(0, 0, 0, 0.1); --text: #1e293b; --text-light: #475569; --background: linear-gradient(135deg, #e0f2fe 0%, #c7d2fe 100%); --particle-background: rgba(15, 23, 42, 0.3); --nav-background: rgba(15, 23, 42, 0.85); --card-hover-transform: translateY(-12px) rotateX(5deg);
-      
-      /* Light Mode Hero Text Gradient (Dark Text) */
-      --hero-title-gradient: linear-gradient(135deg, #0f172a 0%, #312e81 100%);
-      --hero-subtitle-color: #1e293b;
-      --hero-tagline-color: #475569;
-      --hero-contact-text: #475569;
-      --hero-contact-bg: rgba(255, 255, 255, 0.5);
-      --hero-contact-border: rgba(0,0,0,0.1);
-      --hero-secondary-btn-text: var(--secondary);
-      --hero-secondary-btn-border: var(--secondary);
-    }
-    .dark-theme {
-      --primary: #2dd4bf; --secondary: #818cf8; --accent: #7dd3fc; --dark: #e2e8f0; --light: #1e293b; --glass: rgba(0, 0, 0, 0.2); --shadow: rgba(0, 0, 0, 0.4); --text: #cbd5e1; --text-light: #94a3b8; --background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%); --particle-background: rgba(255, 255, 255, 0.08); --nav-background: rgba(2, 6, 23, 0.85);
-      
-      /* Dark Mode Hero Text Gradient (White Text) */
-      --hero-title-gradient: linear-gradient(135deg, #fff 0%, #e2e8f0 100%);
-      --hero-subtitle-color: rgba(255, 255, 255, 0.9);
-      --hero-tagline-color: rgba(255, 255, 255, 0.7);
-      --hero-contact-text: rgba(255, 255, 255, 0.8);
-      --hero-contact-bg: rgba(255, 255, 255, 0.1);
-      --hero-contact-border: rgba(255, 255, 255, 0.2);
-      --hero-secondary-btn-text: white;
-      --hero-secondary-btn-border: rgba(255, 255, 255, 0.3);
-    }
-
-    body { font-family: 'Inter', sans-serif; background: var(--background); min-height: 100vh; overflow-x: hidden; color: var(--text); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); background-attachment: fixed; }
-    .card-link { text-decoration: none; color: inherit; display: block; position: relative; }
-    .card-link::after { content: '\f08e'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; top: 1.5rem; right: 1.5rem; color: var(--text); opacity: 0; transform: scale(0.8); transition: all 0.3s ease; }
-    .card-link:hover::after { opacity: 0.6; transform: scale(1); }
-    .particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; }
-    .particle { position: absolute; border-radius: 50%; background: var(--particle-background); pointer-events: none; }
-    .nav { position: fixed; top: 2rem; right: 2rem; z-index: 1000; display: flex; flex-direction: column; gap: 1rem; }
-    .nav-btn { width: 60px; height: 60px; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 50%; background: var(--nav-background); backdrop-filter: blur(20px); color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); position: relative; overflow: hidden; text-decoration: none; }
-    .nav-btn::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(45deg, var(--primary), var(--accent)); opacity: 0; transition: opacity 0.3s ease; }
-    .nav-btn:hover::before { opacity: 1; }
-    .nav-btn:hover { transform: translateY(-5px) scale(1.1); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); }
-    .nav-btn:hover i { transform: scale(1.1) rotate(5deg); }
-    .nav-btn i { position: relative; z-index: 1; font-size: 1.2rem; transition: transform 0.3s ease; }
-    .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; }
-    .hero-content { z-index: 2; animation: heroSlideUp 1.5s cubic-bezier(0.4, 0, 0.2, 1); max-width: 900px; padding: 0 2rem; }
-    @keyframes heroSlideUp { from { opacity: 0; transform: translateY(100px) scale(0.9); } to { opacity: 1; transform: translateY(0) scale(1); } }
-    .hero h1 { font-size: clamp(3.5rem, 10vw, 7rem); font-weight: 900; background: var(--hero-title-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; letter-spacing: -3px; text-shadow: 0 0 50px rgba(0, 0, 0, 0.1); }
-    .hero .subtitle { font-size: clamp(1.4rem, 4vw, 2.5rem); color: var(--hero-subtitle-color); margin-bottom: 1rem; font-weight: 300; transition: color 0.5s ease; }
-    .hero .tagline { font-size: clamp(1rem, 2.5vw, 1.5rem); color: var(--hero-tagline-color); margin-bottom: 3rem; font-weight: 400; font-style: italic; transition: color 0.5s ease; }
-    .hero .contact-info { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 3rem; flex-wrap: wrap; }
-    .contact-item { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); padding: 1rem 1.5rem; border-radius: 50px; backdrop-filter: blur(10px); font-weight: 500; 
-      color: var(--hero-contact-text); 
-      background: var(--hero-contact-bg); 
-      border: 1px solid var(--hero-contact-border);
-    }
-    .contact-item:hover { color: var(--dark); transform: translateY(-3px) scale(1.05); background: rgba(255, 255, 255, 0.8); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); }
-    .dark-theme .contact-item:hover { color: white; background: rgba(255, 255, 255, 0.2); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); }
-    .cta-buttons { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
-    .cta-btn { display: inline-flex; align-items: center; gap: 0.75rem; padding: 1.2rem 2.5rem; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 1.1rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 15px 35px hsla(var(--primary), 0.4); position: relative; overflow: hidden; }
-    .cta-btn.secondary { background: transparent; box-shadow: none; 
-      color: var(--hero-secondary-btn-text);
-      border: 2px solid var(--hero-secondary-btn-border);
-    }
-    .cta-btn::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent); transition: left 0.6s; }
-    .cta-btn:hover::before { left: 100%; }
-    .cta-btn:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 20px 45px hsla(var(--primary), 0.5); }
-    .cta-btn:hover i { transform: translateX(5px); }
-    .cta-btn i { transition: transform 0.3s ease; }
-    .main-content { padding: 6rem 2rem; max-width: 1400px; margin: 0 auto; }
-    .section { margin-bottom: 8rem; opacity: 0; transform: translateY(50px); transition: all 1s cubic-bezier(0.4, 0, 0.2, 1); }
-    .section.visible { opacity: 1; transform: translateY(0); }
-    .section-title { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; text-align: center; margin-bottom: 4rem; position: relative; color: var(--dark); letter-spacing: -1px; }
-    .section-title::after { content: ''; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 80px; height: 5px; background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent)); border-radius: 3px; }
-    .card { background: var(--glass); backdrop-filter: blur(30px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 25px; padding: 2.5rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1); }
-    .card:hover { transform: translateY(-10px); box-shadow: 0 35px 70px -15px rgba(0,0,0,0.2); }
-    .card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--primary), var(--secondary)); }
-    .summary-card { text-align: center; padding: 3rem; }
-    .summary-card p { font-size: 1.2rem; line-height: 1.8; color: var(--text); }
-    .education-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; }
-    .education-card:hover { transform: var(--card-hover-transform); }
-    .education-header { display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 1.5rem; }
-    .education-icon { width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; flex-shrink: 0; }
-    .education-title { font-size: 1.5rem; font-weight: 700; color: var(--dark); margin-bottom: 0.25rem; }
-    .education-info { color: var(--text-light); font-weight: 500; margin-bottom: 0.5rem; }
-    .education-focus { font-style: italic; color: var(--text-light); }
-    .coursework-title { font-weight: 600; color: var(--dark); margin-bottom: 1rem; font-size: 1.1rem; }
-    .coursework-tags { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-    .coursework-tag { background-color: var(--light); color: var(--text-light); padding: 0.4rem 0.8rem; border-radius: 15px; font-size: 0.85rem; font-weight: 500; border: 1px solid rgba(0,0,0,0.05); }
-    .dark-theme .coursework-tag { border: 1px solid rgba(255,255,255,0.1); }
-    .experience-card:hover { transform: translateY(-8px); }
-    .experience-card::before { background: linear-gradient(90deg, var(--success), var(--primary)); }
-    .experience-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem; }
-    .experience-title-block { flex-grow: 1; }
-    .experience-title { color: var(--primary); font-size: 1.6rem; font-weight: 700; }
-    .experience-company { color: var(--dark); font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; }
-    .experience-period { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; font-weight: 600; flex-shrink: 0; }
-    .experience-details ul { list-style-position: inside; padding-left: 0.5rem; color: var(--text-light); margin: 0; }
-    .experience-details li { margin-bottom: 0.75rem; line-height: 1.6; }
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
-    .project-card { display: flex; flex-direction: column; }
-    .project-card::before { background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)); transform: translateX(-100%); transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
-    .project-card:hover::before { transform: translateX(0); }
-    .project-card:hover { transform: translateY(-15px) rotateX(5deg); background: var(--glass); }
-    .project-icon { width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 18px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem; box-shadow: 0 10px 25px hsla(var(--primary), 0.3); flex-shrink: 0; margin-bottom: 1.5rem;}
-    .project-title { font-size: 1.5rem; font-weight: 700; color: var(--dark); margin-bottom: 1rem; }
-    .project-details ul { list-style-type: none; padding: 0; margin: 0 0 1.5rem 0; flex-grow: 1;}
-    .project-details li { color: var(--text-light); position: relative; padding-left: 1.5rem; margin-bottom: 0.5rem; line-height: 1.6; }
-    .project-details li::before { content: '\f058'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: var(--primary); position: absolute; left: 0; top: 4px; }
-    .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; }
-    .project-tag { background: linear-gradient(135deg, var(--accent), var(--primary)); color: white; padding: 0.4rem 0.9rem; border-radius: 15px; font-size: 0.8rem; font-weight: 500; }
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem; }
-    .skill-category h3 { font-size: 1.6rem; font-weight: 700; color: var(--dark); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
-    .skill-icon { width: 45px; height: 45px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.1rem; }
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-    .skill-tag { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 0.6rem 1rem; border-radius: 25px; font-size: 0.95rem; font-weight: 500; transition: all 0.3s ease; }
-    .skill-tag:hover { transform: translateY(-3px); box-shadow: 0 8px 20px hsla(var(--primary), 0.4); }
-    .certificates-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-    .certificate-card { border-radius: 20px; padding: 2rem; text-align: center; }
-    .certificate-card::before { background: linear-gradient(90deg, #ffd700, #ffed4e); transform: translateX(-100%); transition: transform 0.5s ease; }
-    .certificate-card:hover::before { transform: translateX(0); }
-    .certificate-card:hover { transform: translateY(-8px) scale(1.02); }
-    .certificate-icon { width: 60px; height: 60px; background: linear-gradient(135deg, #ffd700, #ffed4e); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #0f172a; font-size: 1.5rem; margin: 0 auto 1rem; box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3); }
-    .certificate-name { font-weight: 600; color: var(--dark); font-size: 1.1rem; line-height: 1.4; }
-    .scroll-indicator { position: fixed; top: 0; left: 0; width: 100%; height: 5px; background: rgba(255, 255, 255, 0.1); z-index: 1001; }
-    .scroll-progress { height: 100%; background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent)); width: 0%; transition: width 0.1s linear; }
-    .loading { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, var(--primary), var(--secondary)); display: flex; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.8s ease; }
-    .loading-content { text-align: center; color: white; }
-    .loading-spinner { width: 60px; height: 60px; border: 4px solid rgba(255, 255, 255, 0.3); border-top: 4px solid white; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 1rem; }
-    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-    .loading.hidden { opacity: 0; pointer-events: none; }
-    @media (max-width: 1024px) { .projects-grid, .skills-grid { grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); } }
-    @media (max-width: 768px) { .nav { top: 1rem; right: 1rem; flex-direction: row; } .nav-btn { width: 50px; height: 50px; } .hero .contact-info { flex-direction: column; align-items: center; gap: 1rem; } .main-content { padding: 3rem 1rem; } .projects-grid, .skills-grid, .education-grid { grid-template-columns: 1fr; } .cta-buttons { flex-direction: column; align-items: center; } .experience-header { flex-direction: column; align-items: flex-start; } }
-    @media (max-width: 480px) { .section { margin-bottom: 4rem; } .card { padding: 1.5rem; } .hero-content { padding: 0 1rem; } }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karan Panwar | AI Engineer & Data Scientist</title>
+    <meta name="description"
+        content="Portfolio of Karan Panwar, Data Scientist, AI Engineer, and Researcher based in Cambridge, UK.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
+
 <body>
-  <div class="loading" id="loading"><div class="loading-content"><div class="loading-spinner"></div><p>Loading Portfolio...</p></div></div>
-  <div class="scroll-indicator"><div class="scroll-progress" id="scrollProgress"></div></div>
-  <div class="particles" id="particles"></div>
-  <div class="nav">
-    <button class="nav-btn" onclick="toggleTheme()" title="Toggle Theme"><i class="fas fa-moon" id="themeIcon"></i></button>
-    <a href="karan cv.pdf" download class="nav-btn" title="Download Resume"><i class="fas fa-download"></i></a>
-    <button class="nav-btn" onclick="scrollToTop()" title="Back to Top"><i class="fas fa-arrow-up"></i></button>
-  </div>
-
-  <header class="hero" id="home">
-    <div class="hero-content">
-      <h1>Karan Panwar</h1>
-      <p class="subtitle">Data Scientist • AI Engineer • Full-Stack Developer</p>
-      <p class="tagline">Transforming Complex Data into Intelligent Solutions</p>
-      <div class="contact-info">
-        <a href="mailto:karanpanwar8595@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> karanpanwar8595@gmail.com</a>
-        <a href="https://www.linkedin.com/in/karan-panwar-1b9b6a26b/" target="_blank" class="contact-item"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        <a href="https://github.com/karanpanwar8595" target="_blank" class="contact-item"><i class="fab fa-github"></i> GitHub</a>
-      </div>
-      <div class="cta-buttons">
-        <a href="#projects" class="cta-btn"><i class="fas fa-briefcase"></i> View Projects</a>
-        <a href="#skills" class="cta-btn secondary"><i class="fas fa-cogs"></i> Technical Skills</a>
-      </div>
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <div class="splash-logo">KP</div>
+        <div class="loading-bar">
+            <div class="progress"></div>
+        </div>
     </div>
-  </header>
 
-  <main class="main-content">
-    <section class="section" id="summary">
-        <h2 class="section-title">Professional Summary</h2>
-        <div class="summary-card card">
-            <p>Dynamic and result-oriented Data Scientist, AI Engineer, and Researcher with a Distinction in MSc Computer Science from Anglia Ruskin University, Cambridge. Expert in designing, training, and deploying data-driven
-intelligent systems using Machine Learning, Deep Learning, and NLP. Demonstrated excellence in developing AIdriven products for industry partners such as Klip Global, leading projects from research to deployment. Known
-for innovative thinking, cross-functional collaboration, and a passion for solving real-world problems with scalable,
-ethical AI solutions. Seeking UK-based roles in Data Science, Machine Learning, or Applied AI Research.</p>
+    <!-- Animated Background -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">K.P</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#certifications">Certificates</a>
+            </div>
+            <div class="hamburger">
+                <i data-lucide="menu"></i>
+            </div>
         </div>
-    </section>
+    </nav>
 
-    <section class="section" id="experience">
-        <h2 class="section-title">Professional Experience</h2>
-        
-               <div class="experience-card card">
-                <div class="experience-header">
-                    <div class="experience-title-block">
-                        <h3 class="experience-company">Anglia Ruskin University (Klip Global Collaboration)</h3>
-                        <p class="experience-title">AI Agent (Postgraduate Major Project)</p>
+    <!-- Hero Section -->
+    <header id="home" class="section hero">
+        <div class="container hero-content">
+            <div class="hero-text reveal">
+                <h2 class="greeting">Hello, I'm</h2>
+                <h1 class="name">Karan Panwar</h1>
+                <h3 class="title">Data Scientist / AI Engineer / Researcher</h3>
+                <p class="summary">
+                    Dynamic and result-oriented expert in designing, training, and deploying data-driven intelligent
+                    systems using Machine Learning, Deep Learning, and NLP. Passionate about solving real-world problems
+                    with scalable, ethical AI solutions.
+                </p>
+                <div class="hero-cta">
+                    <a href="#experience" class="btn btn-primary">View Experience <i data-lucide="arrow-right"></i></a>
+                    <a href="data/resume.pdf" target="_blank" class="btn btn-secondary">Download Resume <i
+                            data-lucide="download"></i></a>
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="GitHub"><i data-lucide="github"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+                    <a href="mailto:karanpanwar8595@gmail.com" aria-label="Email"><i data-lucide="mail"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title reveal">Professional Experience</h2>
+            <div class="timeline">
+
+                <!-- Klip Global -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <div class="timeline-header">
+                            <div>
+                                <h3>Research Assistant (Generative AI)</h3>
+                                <h4>Klip Global</h4>
+                            </div>
+                            <span class="date">Aug 2025 – Present | Cambridge, UK</span>
+                        </div>
+                        <ul class="timeline-bullets">
+                            <li>Leading development of Klip Agent, a personalized digital wellbeing platform integrating
+                                LLMs, hybrid recommendation systems, and user behavioral analytics.</li>
+                            <li>Designed a hybrid recommendation engine combining Transformer-based NLP, clustering, and
+                                NHS data integration to deliver evidence-based wellbeing guidance.</li>
+                            <li>Built and deployed an LLM-powered conversational agent using LangChain and Hugging Face
+                                models, improving engagement and response quality.</li>
+                            <li>Engineered scalable backend architecture using Django and integrated with Next.js
+                                frontend frameworks.</li>
+                            <li>Collaborating with cross-functional teams (product, data, and research) to continuously
+                                improve AI model performance and system usability.</li>
+                        </ul>
                     </div>
-                    <div class="experience-period">Sep 2024 - Oct 2025</div>
                 </div>
-                <div class="experience-details">
-                    <ul>
-                        <li>Led development of Klip Agent, a personalized digital wellbeing platform integrating LLMs, hybrid recommendation systems, and user behavioral analytics.</li>
-                        <li>Designed a hybrid recommendation engine combining Transformer-based NLP, clustering, and NHS data integration to offer evidence-based health guidance.</li>
-                        <li>Built and deployed an LLM-powered conversational agent using LangChain and Hugging Face models, achieving high user satisfaction in pilot testing.</li>
-                        <li>Orchestrated a secure, scalable full-stack architecture utilizing Next.js (Frontend) and Django (Backend), ensuring GDPR and HIPAA compliance.</li>
+
+                <!-- QNN -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <div class="timeline-header">
+                            <div>
+                                <h3>Research Assistant – Quantum Neural Networks</h3>
+                                <h4>Anglia Ruskin University</h4>
+                            </div>
+                            <span class="date">Jan 2025 – Apr 2025 | Cambridge, UK</span>
+                        </div>
+                        <ul class="timeline-bullets">
+                            <li>Conducted advanced research on Quantum Neural Networks (QNNs) for pattern recognition
+                                and image classification using Qiskit.</li>
+                            <li>Designed and tested quantum circuits replacing classical layers, achieving a 15%
+                                accuracy boost over CNN baselines.</li>
+                            <li>Authored detailed research documentation and contributed to a university publication on
+                                Quantum Machine Learning.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title reveal">Selected Projects</h2>
+            <div class="projects-grid">
+
+                <div class="project-card glass-card reveal">
+                    <h3>KpAgent</h3>
+                    <p class="tagline">AI-Powered Career Assistant</p>
+                    <ul class="timeline-bullets" style="padding-left: 0; margin-bottom: 1.5rem;">
+                        <li style="font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--text-secondary);">Developed
+                            comprehensive full-stack career services platform with AI-driven resume analysis and
+                            personalised job recommendations.</li>
+                        <li style="font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--text-secondary);">Engineered
+                            custom interview preparation tool generating role-specific questions based on user profiles.
+                        </li>
+                        <li style="font-size: 0.95rem; color: var(--text-secondary);">Built modern responsive UI,
+                            delivering polished user experience across all devices.</li>
                     </ul>
+                    <div class="tech-stack">
+                        <span>Next.js</span><span>TypeScript</span><span>NLP</span><span>Tailwind</span>
+                    </div>
                 </div>
-            </div>
-       <br>
-       <br>
 
-       <div class="experience-card card">
-            <div class="experience-header">
-                <div class="experience-title-block">
-                    <h3 class="experience-company">Anglia Ruskin University</h3>
-                    <p class="experience-title">Research Assistant - Advanced ML</p>
+                <div class="project-card glass-card reveal" style="transition-delay: 100ms;">
+                    <h3>SmartStock</h3>
+                    <p class="tagline">Financial Forecast Dashboard</p>
+                    <p class="desc">Built an advanced stock prediction dashboard with dynamic time series analysis,
+                        predictive models, and financial sentiment analytics using real-time APIs.</p>
+                    <div class="tech-stack">
+                        <span>Python</span><span>LSTM</span>
+                    </div>
                 </div>
-                <div class="experience-period">Jan 2025 - May 2025</div>
-            </div>
-            <div class="experience-details">
-                <ul>
-                    <li>Led research comparing Quantum Neural Networks to traditional CNNs, significantly improving processing efficiency for specific image recognition tasks.</li>
-                    <li>Developed and fine-tuned predictive financial models, achieving a measurable increase in back-tested accuracy for market trend analysis.</li>
-                    <li>Engineered novel semantic data processing algorithms to automate insight generation from unstructured text, substantially reducing manual analysis time.</li>
-                </ul>
-            </div>
-        </div>
 
-
-    </section>
-
-    <section class="section" id="projects">
-        <h2 class="section-title">Project Showcase</h2>
-        <div class="projects-grid">
-            <div class="project-card card"><div class="project-icon"><i class="fas fa-heartbeat"></i></div><h3 class="project-title">Digital Health & Wellbeing Agent</h3><div class="project-details"><ul><li>Engineered a personalized recommendation engine using NLP to interpret user queries and provide tailored health advice.</li><li>Designed and deployed a scalable backend with Node.js and TypeScript, handling concurrent users with high uptime.</li></ul></div><div class="project-tags"><span class="project-tag">TypeScript</span><span class="project-tag">Node.js</span><span class="project-tag">NLP</span><span class="project-tag">REST APIs</span></div></div>
-            
-              <div class="project-card card">
-                <div class="project-icon"><i class="fas fa-user-tie"></i></div>
-                <h3 class="project-title">KpAgent: AI-Powered Career Assistant</h3>
-                <div class="project-details">
-                    <ul>
-                        <li>Developed a comprehensive full-stack career platform with AI-driven resume analysis and personalized job recommendations.</li>
-                        <li>Engineered a custom interview preparation tool generating role-specific questions based on user profiles and job descriptions.</li>
-                    </ul>
+                <div class="project-card glass-card reveal" style="transition-delay: 200ms;">
+                    <h3>EmotionSense</h3>
+                    <p class="tagline">Real-Time Emotion Recognition</p>
+                    <p class="desc">Created an AI tool detecting facial and vocal emotions with CNN and MFCCs,
+                        recommending personalized media content via adaptive algorithms.</p>
+                    <div class="tech-stack">
+                        <span>OpenCV</span><span>TensorFlow</span><span>Flask</span>
+                    </div>
                 </div>
-                <div class="project-tags">
-                    <span class="project-tag">Next.js</span><span class="project-tag">TypeScript</span><span class="project-tag">NLP</span><span class="project-tag">Tailwind CSS</span>
+
+                <div class="project-card glass-card reveal">
+                    <h3>SignAI</h3>
+                    <p class="tagline">Sign Language to Text Translator</p>
+                    <p class="desc">Engineered an accessibility-driven system converting sign gestures into English text
+                        with over 95% accuracy using CNN-based visual models.</p>
+                    <div class="tech-stack">
+                        <span>Django</span><span>OpenCV</span><span>Deep Learning</span>
+                    </div>
                 </div>
+
+                <div class="project-card glass-card reveal">
+                    <h3>Cambridge Culture Portal</h3>
+                    <p class="tagline">Interactive Cultural Platform</p>
+                    <p class="desc">Led a 4-member team developing an interactive cultural platform showcasing Cambridge
+                        events and local communities.</p>
+                    <div class="tech-stack">
+                        <span>Django</span><span>HTML</span><span>CSS</span><span>SQLite</span>
+                    </div>
+                </div>
+
             </div>
-            <div class="project-card card"><div class="project-icon"><i class="fas fa-music"></i></div><h3 class="project-title">Emotion-Based Music Recommender</h3><div class="project-details"><ul><li>Achieved high accuracy in facial emotion detection by building and training a custom Convolutional Neural Network (CNN).</li><li>Integrated the Spotify API for seamless, real-time playlist generation, enhancing user engagement and personalization.</li></ul></div><div class="project-tags"><span class="project-tag">CNN</span><span class="project-tag">Deep Learning</span><span class="project-tag">Computer Vision</span><span class="project-tag">Spotify API</span></div></div>
-            <div class="project-card card"><div class="project-icon"><i class="fas fa-sign-language"></i></div><h3 class="project-title">Sign Language Translator</h3><div class="project-details"><ul><li>Developed a real-time sign language translation model using deep learning, bridging communication gaps for the hearing-impaired.</li><li>Built an accessible full-stack application with Python and Django to convert text and speech into sign language.</li></ul></div><div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Django</span><span class="project-tag">Deep Learning</span><span class="project-tag">Accessibility</span></div></div>
-            <div class="project-card card"><div class="project-icon"><i class="fas fa-chart-line"></i></div><h3 class="project-title">Stock Market Prediction Engine</h3><div class="project-details"><ul><li>Designed an LSTM-based model to forecast stock market trends with high accuracy on historical time-series data.</li><li>Developed a custom web interface using HTML and CSS for real-time data visualization and risk assessment.</li></ul></div><div class="project-tags"><span class="project-tag">LSTM</span><span class="project-tag">Time Series</span><span class="project-tag">HTML/CSS</span><span class="project-tag">Finance</span></div></div>
-            <div class="project-card card"><div class="project-icon"><i class="fas fa-tasks"></i></div><h3 class="project-title">Project Management Platform</h3><div class="project-details"><ul><li>Architected a full-stack system with React and Django that increased team productivity through streamlined task tracking.</li><li>Implemented role-based authentication and real-time notifications using WebSockets, reducing task update delays.</li></ul></div><div class="project-tags"><span class="project-tag">React</span><span class="project-tag">Django</span><span class="project-tag">MySQL</span><span class="project-tag">WebSockets</span></div></div>
-            <div class="project-card card"><div class="project-icon"><i class="fas fa-university"></i></div><h3 class="project-title">Cambridge Culture Website</h3><div class="project-details"><ul><li>Contributed to full-stack development, creating a responsive front-end and a robust back-end using Python and Django.</li><li>Managed all site content and data structures efficiently through the custom-configured Django admin panel.</li></ul></div><div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Django</span><span class="project-tag">Full-Stack</span><span class="project-tag">Team Project</span></div></div>
         </div>
     </section>
 
-    <section class="section" id="skills">
-        <h2 class="section-title">Technical Expertise</h2>
-        <div class="skills-grid">
-            <div class="skill-category card"><h3><span class="skill-icon"><i class="fas fa-brain"></i></span>ML & AI</h3><div class="skill-tags"><span class="skill-tag">TensorFlow</span><span class="skill-tag">PyTorch</span><span class="skill-tag">Keras</span><span class="skill-tag">Scikit-learn</span><span class="skill-tag">OpenCV</span><span class="skill-tag">NLP</span><span class="skill-tag">LSTM & CNN</span></div></div>
-            <div class="skill-category card"><h3><span class="skill-icon"><i class="fas fa-chart-pie"></i></span>Data Science</h3><div class="skill-tags"><span class="skill-tag">Pandas</span><span class="skill-tag">NumPy</span><span class="skill-tag">Matplotlib</span><span class="skill-tag">Power BI</span><span class="skill-tag">ETL Processes</span><span class="skill-tag">Statistical Modeling</span></div></div>
-            <div class="skill-category card"><h3><span class="skill-icon"><i class="fas fa-globe"></i></span>Web Development</h3><div class="skill-tags"><span class="skill-tag">Node.js</span><span class="skill-tag">Python (Django, Flask)</span><span class="skill-tag">React.js</span><span class="skill-tag">Next.js</span><span class="skill-tag">TypeScript</span><span class="skill-tag">REST APIs</span><span class="skill-tag">WebSockets</span></div></div>
-            <div class="skill-category card"><h3><span class="skill-icon"><i class="fas fa-database"></i></span>Databases</h3><div class="skill-tags"><span class="skill-tag">MySQL</span><span class="skill-tag">PostgreSQL</span><span class="skill-tag">MongoDB</span></div></div>
-            <div class="skill-category card"><h3><span class="skill-icon"><i class="fas fa-cloud"></i></span>Tools & Platforms</h3><div class="skill-tags"><span class="skill-tag">Docker</span><span class="skill-tag">Git & GitHub</span><span class="skill-tag">Jupyter</span></div></div>
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title reveal">Core Technical Skills</h2>
+            <div class="skills-grid">
+
+                <div class="skill-category glass-card reveal">
+                    <div class="skill-icon"><i data-lucide="code"></i></div>
+                    <h3>Languages</h3>
+                    <div class="skill-tags">
+                        <span>Python</span><span>JavaScript (TypeScript)</span><span>SQL</span><span>Java</span>
+                    </div>
+                </div>
+
+                <div class="skill-category glass-card reveal">
+                    <div class="skill-icon"><i data-lucide="brain"></i></div>
+                    <h3>Machine Learning</h3>
+                    <div class="skill-tags">
+                        <span>TensorFlow</span><span>PyTorch</span><span>NLP</span><span>Generative
+                            AI</span><span>OpenCV</span>
+                    </div>
+                </div>
+
+                <div class="skill-category glass-card reveal">
+                    <div class="skill-icon"><i data-lucide="bar-chart-2"></i></div>
+                    <h3>Data Science</h3>
+                    <div class="skill-tags">
+                        <span>Pandas</span><span>NumPy</span><span>Power BI</span><span>Tableau</span>
+                    </div>
+                </div>
+
+                <div class="skill-category glass-card reveal">
+                    <div class="skill-icon"><i data-lucide="server"></i></div>
+                    <h3>Backend & Frameworks</h3>
+                    <div class="skill-tags">
+                        <span>Django</span><span>FastAPI</span><span>Next.js</span><span>RESTful APIs</span>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
-    <section class="section" id="education">
-      <h2 class="section-title">Education</h2>
-      <div class="education-grid">
-        <a href="https://www.aru.ac.uk/" target="_blank" class="card-link"><div class="education-card card"><div class="education-header"><div class="education-icon"><i class="fas fa-graduation-cap"></i></div><div><h3 class="education-title">MSc in Computer Science</h3><p class="education-info">Anglia Ruskin University, Cambridge, UK</p><p class="education-focus">Graduated: October 2025 (Distinction)</p></div></div><h4 class="coursework-title">Key Coursework:</h4><div class="coursework-tags"><span class="coursework-tag">Machine Learning in Finance</span><span class="coursework-tag">Machine Learning for Imaging</span><span class="coursework-tag">Semantic Data Technologies</span><span class="coursework-tag">Advanced Web Solutions</span><span class="coursework-tag">Cyber Security & AI Case Studies</span><span class="coursework-tag">Postgraduate Major Project</span><span class="coursework-tag">Research Methods</span></div></div></a>
-        <a href="https://sxca.edu.in/" target="_blank" class="card-link"><div class="education-card card"><div class="education-header"><div class="education-icon"><i class="fas fa-university"></i></div><div><h3 class="education-title">BSc in Computer Applications</h3><p class="education-info">St. Xavier’s College, Ahmedabad, India</p><p class="education-focus">Graduated: May 2024 (First Class)</p></div></div><h4 class="coursework-title">Key Coursework:</h4><div class="coursework-tags"><span class="coursework-tag">Python for Big Data & ML</span><span class="coursework-tag">Database Management Systems</span><span class="coursework-tag">Data Structures</span><span class="coursework-tag">Object-Oriented Programming</span><span class="coursework-tag">Statistical Computing</span><span class="coursework-tag">Advanced C Programming</span><span class="coursework-tag">Core Java</span><span class="coursework-tag">Web Technologies (PHP, ASP.NET)</span></div></div></a>
-      </div>
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title reveal">Education & Achievements</h2>
+            <div class="flex-layout">
+                <div class="edu-column">
+                    <div class="edu-card glass-card reveal">
+                        <h3>MSc Computer Science <span class="highlight">(Distinction)</span></h3>
+                        <h4>Anglia Ruskin University, Cambridge, UK</h4>
+                        <p class="date">Sep 2024 – Oct 2025</p>
+                        <p class="modules">Key Modules: Machine Learning in Finance, AI for Imaging, Semantic Web
+                            Technologies, Cybersecurity and AI.</p>
+                    </div>
+                    <div class="edu-card glass-card reveal">
+                        <h3>BSc Computer Applications <span class="highlight">(First Class)</span></h3>
+                        <h4>St. Xavier’s College, Ahmedabad, India</h4>
+                        <p class="date">May 2021 – May 2024</p>
+                    </div>
+                </div>
+                <div class="achievements-column reveal">
+                    <div class="glass-card achievements-card">
+                        <h3><i data-lucide="award"></i> Top Highlights</h3>
+                        <ul>
+                            <li>Achieved Distinction in MSc Computer Science (top 10% class ranking).</li>
+                            <li>Selected by Klip Global to lead an industrial research project integrating AI with
+                                wellbeing analytics.</li>
+                            <li>Published and presented university research on Quantum AI and Mental Health Technology.
+                            </li>
+                            <li>Acted as Team Lead for four cross-functional AI & web development projects at ARU.</li>
+                            <li>Received recognition for innovation in AI-based health technology from faculty mentors.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="section" id="certificates">
-      <h2 class="section-title">Certifications</h2>
-      <div class="certificates-grid">
-        <a href="IBM.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Python for Data Science<br/>(IBM)</p></div></a>
-        <a href="ACCENATURE.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Data Analytics & Viz<br/>(Accenture)</p></div></a>
-        <a href="JP MORGAN.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Software Engineering<br/>(JPMorgan Chase)</p></div></a>
-        <a href="BCG GENAI.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Generative AI<br/>(BCG)</p></div></a>
-        <a href="AWS.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Cloud Practitioner<br/>(AWS)</p></div></a>
-        <a href="TATA GENAI.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Generative AI<br/>(TATA)</p></div></a>
-        <a href="FORD.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">AI Fundamentals<br/>(Ford)</p></div></a>
-        <a href="BANK OF AMERICA.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Virtual Experience<br/>(Bank of America)</p></div></a>
-        <a href="QUNATIUM.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Data Analytics<br/>(Quantium)</p></div></a>
-        <a href="BRITISH AIRWAYS.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Cybersecurity<br/>(British Airways)</p></div></a>
-        <a href="LLYODS BANK TECH.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Tech & Innovation<br/>(Lloyds Bank)</p></div></a>
-        <a href="TATA.pdf" target="_blank" class="card-link"><div class="certificate-card card"><div class="certificate-icon"><i class="fas fa-award"></i></div><p class="certificate-name">Data Visualization<br/>(TATA)</p></div></a>
-      </div>
+    <!-- Certifications Section -->
+    <section id="certifications" class="section">
+        <div class="container">
+            <h2 class="section-title reveal">Certifications</h2>
+            <div class="certificates-grid">
+
+                <a href="data/IIT%20karan.pdf" target="_blank" class="cert-link">
+                    <div class="certificate-card glass-card reveal">
+                        <div class="cert-icon"><i data-lucide="graduation-cap"></i></div>
+                        <p class="cert-name">AI & ML using Python</p>
+                        <p class="cert-issuer">IIT Madras (Score: 86%)</p>
+                    </div>
+                </a>
+
+                <a href="data/AWS.pdf" target="_blank" class="cert-link">
+                    <div class="certificate-card glass-card reveal" style="transition-delay: 100ms;">
+                        <div class="cert-icon"><i data-lucide="cloud"></i></div>
+                        <p class="cert-name">AWS Cloud Practitioner</p>
+                        <p class="cert-issuer">AWS</p>
+                    </div>
+                </a>
+
+                <a href="data/IBM.pdf" target="_blank" class="cert-link">
+                    <div class="certificate-card glass-card reveal" style="transition-delay: 100ms;">
+                        <div class="cert-icon"><i data-lucide="award"></i></div>
+                        <p class="cert-name">Python for Data Science</p>
+                        <p class="cert-issuer">IBM</p>
+                    </div>
+                </a>
+
+                <a href="data/BCG%20GENAI.pdf" target="_blank" class="cert-link">
+                    <div class="certificate-card glass-card reveal" style="transition-delay: 200ms;">
+                        <div class="cert-icon"><i data-lucide="brain"></i></div>
+                        <p class="cert-name">Generative AI</p>
+                        <p class="cert-issuer">BCG</p>
+                    </div>
+                </a>
+
+                <a href="data/TATA%20GENAI.pdf" target="_blank" class="cert-link">
+                    <div class="certificate-card glass-card reveal" style="transition-delay: 300ms;">
+                        <div class="cert-icon"><i data-lucide="cpu"></i></div>
+                        <p class="cert-name">Generative AI</p>
+                        <p class="cert-issuer">TATA Consultancy</p>
+                    </div>
+                </a>
+
+                <a href="data/JP%20MORGAN.pdf" target="_blank" class="cert-link">
+                    <div class="certificate-card glass-card reveal">
+                        <div class="cert-icon"><i data-lucide="code-2"></i></div>
+                        <p class="cert-name">Software Engineering</p>
+                        <p class="cert-issuer">JPMorgan Chase</p>
+                    </div>
+                </a>
+
+                <a href="data/ACCENATURE.pdf" target="_blank" class="cert-link">
+                    <div class="certificate-card glass-card reveal" style="transition-delay: 100ms;">
+                        <div class="cert-icon"><i data-lucide="bar-chart"></i></div>
+                        <p class="cert-name">Data Analytics & Viz</p>
+                        <p class="cert-issuer">Accenture</p>
+                    </div>
+                </a>
+
+                <a href="data/FORD.pdf" target="_blank" class="cert-link">
+                    <div class="certificate-card glass-card reveal" style="transition-delay: 200ms;">
+                        <div class="cert-icon"><i data-lucide="car"></i></div>
+                        <p class="cert-name">AI Fundamentals</p>
+                        <p class="cert-issuer">Ford</p>
+                    </div>
+                </a>
+
+                <a href="data/BANK%20OF%20AMERICA.pdf" target="_blank" class="cert-link">
+                    <div class="certificate-card glass-card reveal" style="transition-delay: 300ms;">
+                        <div class="cert-icon"><i data-lucide="briefcase"></i></div>
+                        <p class="cert-name">Virtual Experience</p>
+                        <p class="cert-issuer">Bank of America</p>
+                    </div>
+                </a>
+
+                <a href="data/QUNATIUM.pdf" target="_blank" class="cert-link">
+                    <div class="certificate-card glass-card reveal">
+                        <div class="cert-icon"><i data-lucide="database"></i></div>
+                        <p class="cert-name">Data Analytics</p>
+                        <p class="cert-issuer">Quantium</p>
+                    </div>
+                </a>
+
+                <a href="data/BRITISH%20AIRWAYS.pdf" target="_blank" class="cert-link">
+                    <div class="certificate-card glass-card reveal" style="transition-delay: 100ms;">
+                        <div class="cert-icon"><i data-lucide="plane"></i></div>
+                        <p class="cert-name">Cybersecurity</p>
+                        <p class="cert-issuer">British Airways</p>
+                    </div>
+                </a>
+
+                <a href="data/LLYODS%20BANK%20TECH.pdf" target="_blank" class="cert-link">
+                    <div class="certificate-card glass-card reveal" style="transition-delay: 200ms;">
+                        <div class="cert-icon"><i data-lucide="lightbulb"></i></div>
+                        <p class="cert-name">Tech & Innovation</p>
+                        <p class="cert-issuer">Lloyds Bank</p>
+                    </div>
+                </a>
+
+                <a href="data/TATA.pdf" target="_blank" class="cert-link">
+                    <div class="certificate-card glass-card reveal" style="transition-delay: 300ms;">
+                        <div class="cert-icon"><i data-lucide="pie-chart"></i></div>
+                        <p class="cert-name">Data Visualization</p>
+                        <p class="cert-issuer">TATA</p>
+                    </div>
+                </a>
+
+
+
+                <div class="certificate-card glass-card reveal" style="transition-delay: 100ms;">
+                    <div class="cert-icon"><i data-lucide="binary"></i></div>
+                    <p class="cert-name">Quantum Computing Fundamentals</p>
+                    <p class="cert-issuer">IBM Qiskit</p>
+                </div>
+
+                <div class="certificate-card glass-card reveal" style="transition-delay: 200ms;">
+                    <div class="cert-icon"><i data-lucide="network"></i></div>
+                    <p class="cert-name">Advanced Deep Learning</p>
+                    <p class="cert-issuer">Coursera</p>
+                </div>
+
+            </div>
+        </div>
     </section>
-  </main>
-  
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const loadingScreen = document.getElementById('loading');
-      window.addEventListener('load', () => { setTimeout(() => loadingScreen.classList.add('hidden'), 500); });
-      const themeIcon = document.getElementById('themeIcon');
-      const body = document.body;
-      const currentTheme = localStorage.getItem('theme');
-      if (currentTheme === 'dark') { body.classList.add('dark-theme'); themeIcon.classList.replace('fa-moon', 'fa-sun'); }
-      window.toggleTheme = function() {
-        body.classList.toggle('dark-theme');
-        let theme = body.classList.contains('dark-theme') ? 'dark' : 'light';
-        theme === 'dark' ? themeIcon.classList.replace('fa-moon', 'fa-sun') : themeIcon.classList.replace('fa-sun', 'fa-moon');
-        localStorage.setItem('theme', theme);
-      };
-      window.scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-      const particlesContainer = document.getElementById('particles');
-      if (particlesContainer) {
-        const numParticles = 50;
-        for (let i = 0; i < numParticles; i++) { let p = document.createElement('div'); p.classList.add('particle'); const s = Math.random() * 8 + 2; p.style.width = `${s}px`; p.style.height = `${s}px`; p.style.left = `${Math.random() * 100}%`; p.style.top = `${Math.random() * 100}%`; p.style.animation = `float ${Math.random() * 20 + 15}s ease-in-out infinite ${Math.random() * 10}s`; particlesContainer.appendChild(p); }
-        const ss = document.createElement("style"); ss.innerText = `@keyframes float { 0% { transform: translateY(0) translateX(0); opacity: 0.7; } 50% { transform: translateY(-100px) translateX(${Math.random() * 100 - 50}px); opacity: 0.3; } 100% { transform: translateY(0) translateX(0); opacity: 0.7; }}`; document.head.appendChild(ss);
-      }
-      const scrollProgress = document.getElementById('scrollProgress');
-      window.addEventListener('scroll', () => { if (scrollProgress) { const p = (document.documentElement.scrollTop / (document.documentElement.scrollHeight - document.documentElement.clientHeight)) * 100; scrollProgress.style.width = `${p}%`; } });
-      const observer = new IntersectionObserver(e => { e.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.1 });
-      document.querySelectorAll('.section').forEach(section => observer.observe(section));
-      document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('click', function (e) { e.preventDefault(); const t = document.querySelector(this.getAttribute('href')); if(t) t.scrollIntoView({ behavior: 'smooth' }); }); });
-    });
-  </script>
+
+    <!-- Professional Strengths Section -->
+    <section id="strengths" class="section">
+        <div class="container">
+            <h2 class="section-title reveal">Professional Strengths</h2>
+            <div class="projects-grid">
+                <div class="glass-card reveal">
+                    <p class="desc" style="color: var(--text-primary); font-size: 1.1rem;">
+                        <i data-lucide="check-circle" style="color: var(--accent-light); margin-right: 10px;"></i>
+                        Deep expertise in applied machine learning, NLP, and quantum computing with strong mathematical
+                        background.
+                    </p>
+                </div>
+                <div class="glass-card reveal" style="transition-delay: 100ms;">
+                    <p class="desc" style="color: var(--text-primary); font-size: 1.1rem;">
+                        <i data-lucide="check-circle" style="color: var(--accent-light); margin-right: 10px;"></i>
+                        Excellent communicator skilled in translating complex data insights into actionable business
+                        strategies.
+                    </p>
+                </div>
+                <div class="glass-card reveal" style="transition-delay: 200ms;">
+                    <p class="desc" style="color: var(--text-primary); font-size: 1.1rem;">
+                        <i data-lucide="check-circle" style="color: var(--accent-light); margin-right: 10px;"></i>
+                        Passionate about ethical AI, inclusivity, and deploying human-centric intelligent systems.
+                    </p>
+                </div>
+                <div class="glass-card reveal" style="transition-delay: 300ms;">
+                    <p class="desc" style="color: var(--text-primary); font-size: 1.1rem;">
+                        <i data-lucide="check-circle" style="color: var(--accent-light); margin-right: 10px;"></i>
+                        Adaptable to fast-paced environments with strong teamwork, leadership, and research skills.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 Karan Panwar. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">LinkedIn</a>
+                <a href="#">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
-</html>
 
+</html>
